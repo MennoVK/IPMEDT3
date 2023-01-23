@@ -4,9 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="aframe.min.js"></script>
+    <script defer src="script.js"></script>
+    <title>My first VR world</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="brandslang" src="assets/brandslang.glb"></a-asset-item>
+            <a-asset-item id="fire1asset" src="assets/fire1.glb"></a-asset-item>
+            <a-asset-item id="fire2asset" src="assets/fire2.glb"></a-asset-item>
+            <a-asset-item id="fire3asset" src="assets/fire3.glb"></a-asset-item>
+            <a-asset-item id="fire4asset" src="assets/fire4.glb"></a-asset-item>
+            <audio id="whitenoise" src="assets/audio/whitenoise.mp3" preload="true"></audio>
+            <audio id="fireaudio" src="assets/audio/fire.mp3" preload="true"></audio>
+        </a-assets>
+        <a-sky color="#42adf5"></a-sky>
+
+        <a-entity id="rig" progressive-controls>
+            <a-camera id="js--camera" position="1.5 1.63 8"></a-camera>
+        <a-entity id="righthand" oculus-touch-controls="hand: right;" grip-logging triggerdown-logging triggerup-logging thumbstick-logging>
+            <a-entity id="righthand"></a-entity>
+            <a-entity id="js--jet--holding" visible="false" clickable position="0 -0.7 0" rotation="0 180 0" scale="0.5 0.5 0.5">
+                <a-entity position="0 1.63 0" rotation="0 180 0" gltf-model="#brandslang" raycaster="objects: #fire1, #fire2, #fire3, #fire4"></a-entity>
+                <a-cylinder id="js--water" sound="src: #whitenoise; volume: 5; loop: true" rotation="90 0 0" position="0 1.63 0" scale="1 0 1" radius="0.05" height="15" material="color: #3295a8; transparent: true; opacity: 0.25" ></a-cylinder>
+            </a-entity>
+        </a-entity>
+        </a-entity>
+        
+        
+        
+        <a-entity id="js--jet" clickable position="0 1.63 -1" rotation="0 180 0">
+            <a-entity id="js--brandslang" gltf-model="#brandslang"></a-entity>
+        </a-entity>
+
+        <a-entity position="3 0 0" id="js--fire1" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;">
+            <a-entity class="fire1model" id="fire1" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
+            <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
+            <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
+            <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
+        </a-entity>
+
+        <a-entity position="-3 0 0" id="js--fire2" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;">
+            <a-entity class="fire1model" id="fire2" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
+            <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
+            <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
+            <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
+        </a-entity>
+
+        <a-entity position="0 0 6" id="js--fire3" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;"> 
+            <a-entity class="fire1model" id="fire3" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
+            <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
+            <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
+            <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
+        </a-entity>
+
+        <a-entity position="2 0 -4" id="js--fire4" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;">
+            <a-entity class="fire1model" id="fire4" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
+            <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
+            <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
+            <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
+        </a-entity>
+
+        <a-plane id="ground" width="17" height="17" position="0 0 0" rotation="-90 0 0" color="grey" ></a-plane>
+    </a-scene>
 </body>
-</html>
+</html> 
