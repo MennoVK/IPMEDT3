@@ -11,7 +11,7 @@
     <title>My first VR world</title>
 </head>
 <body>
-    <a-scene fog="type: exponential; color: #AAA; density: 0.2;" stats>
+    <a-scene fog="type: exponential; color: #AAA; density: 0.2;aaa" stats>
         <a-assets>
             <!-- Menno -->
             <a-asset-item id="brandslang" src="assets/models/brandslang.glb"></a-asset-item>
@@ -24,6 +24,7 @@
 
             <!-- Cas -->
             <a-asset-item id="room" src="assets/models/room.glb"></a-asset-item>
+            <a-asset-item id="tekst" src="assets/models/eindetekst.glb"></a-asset-item>
 
             <!-- Jasper -->
             <!-- <a-asset-item id="wall-obj" src="./objects/Wall.obj"></a-asset-item>
@@ -71,6 +72,8 @@
 
         <a-entity scale="0.6 0.6 0.6">
             <a-obj-model gltf-model="#room" rotation="0 90 0" position="0 0 -4"></a-obj-model>
+            <!-- position should be -2 3 1 -->
+            <a-obj-model id="eindetekst" gltf-model="#tekst" scale="0.7 0.7 0.7" rotation="0 0 0" position="-2 3 3"></a-obj-model>
 
             <a-entity position="-6.8 1.8 -4.2" id="js--fire1" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
                 <a-entity class="fire1model" id="fire1" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
@@ -126,7 +129,7 @@
     <!-- Brandende kamer eind -->
 
     <!-- Kleedkamer -->
-        <a-entity position="10 1.63 0" material="fog: false">
+        <a-entity position="10 1.2 0" material="fog: false">
         <a-obj-model class="js--helmet js--clothes" src="#helmet-obj" position="-1.9 -0.37 -1.7" scale="0.0015 0.0015 0.0015" color="red"></a-obj-model>
         <a-obj-model class="js--brandslang js--pickup" src="#brandslang-obj" position="10.2 0.2 -0.5" rotation="0 270 0" scale="0.1 0.1 0.1" color="white"></a-obj-model>
 
@@ -152,7 +155,7 @@
      <!-- Kleedkamer eind -->
 
      <!-- Straat -->
-     <a-entity position="0 1.63 -10" material="fog: false"> 
+     <a-entity position="0 1.2 -10" material="fog: false"> 
         <div class="todo" id="todo">
             <h1>To Do:</h1>
             <h2>Maak de brandspuit vast aan de brandweerwagen</h2>
