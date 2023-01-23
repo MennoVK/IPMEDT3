@@ -7,6 +7,8 @@ window.onload = () =>{
     const placeholder = document.getElementsByClassName('js--kapstok');
     const door = document.getElementsByClassName('js--door');
 
+    const text = document.getElementById('eindetekst');
+
     let scene = document.getElementById('js--scene');
 
     let hold = null;
@@ -63,4 +65,8 @@ window.onload = () =>{
             }
         });
     }
+
+    // van Cas: pseudocode eindetekst verplaatsen
+    // als laatste vuur uit is:
+        // text.setAttribute('position', "2 3 1");
 }
