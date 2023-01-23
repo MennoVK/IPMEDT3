@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script defer src="script.js"></script>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>My first VR world</title>
 </head>
 <body>
-    <a-scene>
+    <a-scene stats>
         <a-assets>
+            <!-- Menno -->
             <a-asset-item id="brandslang" src="assets/models/brandslang.glb"></a-asset-item>
             <a-asset-item id="fire1asset" src="assets/models/fire1.glb"></a-asset-item>
             <a-asset-item id="fire2asset" src="assets/models/fire2.glb"></a-asset-item>
@@ -19,11 +22,43 @@
             <audio id="whitenoise" src="assets/audio/whitenoise.mp3" preload="true"></audio>
             <audio id="fireaudio" src="assets/audio/fire.mp3" preload="true"></audio>
 
+            <!-- Cas -->
             <a-asset-item id="room" src="assets/models/room.glb"></a-asset-item>
+
+            <!-- Jasper -->
+            <!-- <a-asset-item id="wall-obj" src="./objects/Wall.obj"></a-asset-item>
+            <a-asset-item id="wall-material" src="./textures/wall.mtl"></a-asset-item> -->
+
+            <a-asset-item id="bank-obj" src="./assets/models/bank.obj"></a-asset-item>
+            <a-asset-item id="bank-material" src="./assets/models/materials/bank.mtl"></a-asset-item>
+
+            <a-asset-item id="kapstok-obj" src="./assets/models/kapstok.obj"></a-asset-item>
+            <a-asset-item id="kapstok-material" src="./assets/models/materials/kapstok.mtl"></a-asset-item>
+
+            <a-asset-item id="kleedkamer-obj" src="./assets/models/kleedkamer.obj"></a-asset-item>
+            <a-asset-item id="kleedkamer-material" src="./assets/models/materials/kleedkamer.mtl"></a-asset-item>
+
+            <!-- <a-asset-item id="helmet-obj" src="./objects/firemanhelmet.obj"></a-asset-item> -->
+            <a-asset-item id="brandslang-obj" src="./assets/models/brandslang.obj"></a-asset-item>
+
+            <a-asset-item id="door-obj" src="./assets/models/Door.obj"></a-asset-item>
+            <a-asset-item id="door-material" src="./assets/models/materials/Door.mtl"></a-asset-item>
+
+            <a-asset-item id="houder-obj" src="./assets/models/blushouder.obj"></a-asset-item>
+            <a-asset-item id="houder-material" src="./assets/models/materials/Door.mtl"></a-asset-item>
+
+            <a-asset-item id="house-obj" src="./assets/models/house.obj"></a-asset-item>
+            <a-asset-item id="house-material" src="./assets/models/materials/house.mtl"></a-asset-item>
+
+            <a-asset-item id="truck-obj" src="./assets/models/fireTruck.obj"></a-asset-item>
+            <a-asset-item id="truck-material" src="./assets/models/materials/fireTruck.mtl"></a-asset-item>
+
+            <!-- <a-asset-item id="smoke-texture" src="./textures/smoke-texture.jpg"></a-asset-item> -->
 
         </a-assets>
         <a-sky color="#42adf5"></a-sky>
-
+<!-- Brandende Kamer -->   
+        <a-entity>
         <a-entity id="rig" progressive-controls>
             <a-camera id="js--camera" position="0 1.9 0"></a-camera>
         <a-entity id="righthand" oculus-touch-controls="hand: right;" grip-logging triggerdown-logging triggerup-logging thumbstick-logging>
@@ -88,8 +123,60 @@
             <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
         </a-entity>
 
-
         <a-obj-model gltf-model="#room" rotation="0 90 0" position="0 0 -4"></a-obj-model>
+    </a-entity>
+    <!-- Brandende kamer eind -->
+
+    <!-- Kleedkamer -->
+        <a-entity position="10 1.63 0">
+        <a-obj-model class="js--helmet js--clothes" src="#helmet-obj" position="-1.9 -0.37 -1.7" scale="0.0015 0.0015 0.0015" color="red"></a-obj-model>
+        <a-obj-model class="js--brandslang js--pickup" src="#brandslang-obj" position="10.2 0.2 -0.5" rotation="0 270 0" scale="0.1 0.1 0.1" color="white"></a-obj-model>
+
+        <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 -1 0.9" scale="1 1 1" rotation="0 90 0" link="href: straat.html;"></a-obj-model>
+
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -5.8" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -4.4" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -3" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -1.6" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 180 0" position="12 -1 -5.2" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 180 0" position="10.6 -1 -5.2" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+
+        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 -90 0" position="13.8 0.4 -4.8" scale="1 1 1" color="orange"></a-obj-model>
+        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 -90 0" position="13.8 0.4 -7.8" scale="1 1 1" color="orange"></a-obj-model>
+        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 0 0" position="8.6 0.4 -5.8" scale="1 1 1" color="orange"></a-obj-model>
+
+        <a-obj-model src="#houder-obj" mtl="#houder-material" rotation="0 180 90" position="10 0 -0.5" scale="0.1 0.1 0.1"></a-obj-model>
+
+        <a-image src="./assets/models/materials/brandweer-pak.png" position="11.45 0.15 -5.8"></a-image>
+
+        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" position="10 -1 1" scale="1 1 1" color="red"></a-obj-model>
+    </a-entity>
+     <!-- Kleedkamer eind -->
+
+     <!-- Straat -->
+     <a-entity position="0 1.63 -10">
+        <div class="todo" id="todo">
+            <h1>To Do:</h1>
+            <h2>Maak de brandspuit vast aan de brandweerwagen</h2>
+            <br>
+            <h2>Ga het huis van de brand binnen</h2>
+        </div>
+
+        <a-plane position="4 0 -14" color="black" rotation="0 -90 0" width="0.7" height="1"></a-plane>
+        
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -8" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -14" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -20" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -14" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -20" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -26" scale="1 1 1"></a-obj-model>
+
+        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -14" scale="1 1 1"></a-obj-model>
+
+        <a-sky color="#9cc2e6"></a-sky>
+
+     </a-entity>
+     <!-- Straat eind -->
     </a-scene>
 </body>
 </html> 
