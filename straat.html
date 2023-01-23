@@ -7,7 +7,7 @@
     <title>Test</title>
 
     <script src="./aframe.min.js"></script>
-    <script src="./aframe-particle-system-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 
     <script src="./main.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -21,13 +21,13 @@
     </div>
     <a-scene>
         <a-assets>
-            <a-asset-item id="house-obj" src="./objects/house.obj"></a-asset-item>
-            <a-asset-item id="house-material" src="./textures/house.mtl"></a-asset-item>
+            <a-asset-item id="house-obj" src="./assets/models/house.obj"></a-asset-item>
+            <a-asset-item id="house-material" src="./assets/models/house.mtl"></a-asset-item>
 
-            <a-asset-item id="truck-obj" src="./objects/fireTruck.obj"></a-asset-item>
-            <a-asset-item id="truck-material" src="./textures/fireTruck.mtl"></a-asset-item>
+            <a-asset-item id="truck-obj" src="./assets/models/fireTruck.obj"></a-asset-item>
+            <a-asset-item id="truck-material" src="./assets/models/fireTruck.mtl"></a-asset-item>
 
-            <a-asset-item id="smoke-texture" src="./textures/smoke-texture.jpg"></a-asset-item>
+            <!-- <a-asset-item id="smoke-texture" src="./textures/smoke-texture.jpg"></a-asset-item> -->
         </a-assets>
         <a-camera id="js--camera" position="5.5 0 -12">
             <a-cursor id="js--cursor"
