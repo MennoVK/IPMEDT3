@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+    <title>Firefighter</title>
+  </head>
+  <body>
+    <a-scene id="js--scene">
+      <a-camera id="js--camera" position="0 4 8 ">
+       </a-camera>
+      
+      <a-assets>
+        <a-asset-item id="room" src="models/room.glb"></a-asset-item>
+      </a-assets>
+
+        <a-obj-model gltf-model="#room"  scale="0.4 0.4 0.4" rotation="0 90 0" position="5 1 1.5"></a-obj-model>
+
+    </a-scene>
+  </body>
+</html>
