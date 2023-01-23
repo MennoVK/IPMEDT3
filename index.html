@@ -18,6 +18,9 @@
             <a-asset-item id="fire4asset" src="assets/modelsfire4.glb"></a-asset-item>
             <audio id="whitenoise" src="assets/audio/whitenoise.mp3" preload="true"></audio>
             <audio id="fireaudio" src="assets/audio/fire.mp3" preload="true"></audio>
+
+            <a-asset-item id="room" src="assets/models/room.glb"></a-asset-item>
+
         </a-assets>
         <a-sky color="#42adf5"></a-sky>
 
@@ -63,6 +66,11 @@
             <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
             <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
         </a-entity>
+
+
+
+
+        <a-obj-model gltf-model="#room"  scale="0.4 0.4 0.4" rotation="0 90 0" position="5 1 1.5"></a-obj-model>
 
         <a-plane id="ground" width="17" height="17" position="0 0 0" rotation="-90 0 0" color="grey" ></a-plane>
     </a-scene>
