@@ -7,19 +7,25 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script defer src="script.js"></script>
     <script src="./main.js"></script>
+    <script src="teleport.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <script src="./straat.js"></script>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <title>My first VR world</title>
 </head>
 <body>
     <a-scene fog="type: exponential; color: #AAA; density: 0.2;aaa" stats>
-        <a-camera id="js--camera">
+
+        <!-- voor testen camera -->
+        <a-camera id="js--camera" position="22 1.63 -2">
             <a-cursor id="js--cursor"
             cursor="fuse: true; fuseTimeout: 2000"
             geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
             position="0 0 -0.5"
             ></a-cursor>
         </a-camera>
+
+
         <a-assets>
             <!-- Menno -->
             <a-asset-item id="brandslang" src="assets/models/brandslang.glb"></a-asset-item>
@@ -29,6 +35,8 @@
             <a-asset-item id="fire4asset" src="assets/models/fire4.glb"></a-asset-item>
             <audio id="whitenoise" src="assets/audio/whitenoise.mp3" preload="true"></audio>
             <audio id="fireaudio" src="assets/audio/fire.mp3" preload="true"></audio>
+            <audio id="firedepartment" src="assets/audio/fireDepartment.mp3" preload="true"></audio>
+            <audio id="engineidle" src="assets/audio/engineidle.mp3" preload="true"></audio>
 
             <!-- Cas -->
             <a-asset-item id="room" src="assets/models/room.glb"></a-asset-item>
@@ -76,49 +84,49 @@
             <!-- position should be -2 3 1 -->
             <a-obj-model id="eindetekst" gltf-model="#tekst" scale="0.7 0.7 0.7" rotation="0 0 0" position="-2 3 3"></a-obj-model>
 
-            <a-entity position="-6.8 1.8 -4.2" id="js--fire1" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
+            <a-entity position="-6.8 1.8 -4.2" id="js--fire1" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
                 <a-entity class="fire1model" id="fire1" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
                 <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
                 <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
                 <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
             </a-entity>
 
-            <a-entity position="-6.8 1.8 -4.8" id="js--fire2" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
+            <a-entity position="-6.8 1.8 -4.8" id="js--fire2" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
                 <a-entity class="fire1model" id="fire2" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
                 <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
                 <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
                 <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
             </a-entity>
 
-            <a-entity position="1.8 0.6 -3" id="js--fire3" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;"> 
+            <a-entity position="1.8 0.6 -3" id="js--fire3" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;"> 
                 <a-entity class="fire1model" id="fire3" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
                 <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
                 <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
                 <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
             </a-entity>
 
-            <a-entity position="1.8 0.6 -5" id="js--fire4" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;"> 
+            <a-entity position="1.8 0.6 -5" id="js--fire4" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;"> 
                 <a-entity class="fire1model" id="fire4" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
                 <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
                 <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
                 <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
             </a-entity>
 
-            <a-entity position="5.5 1.5 -8" id="js--fire5" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;">
+            <a-entity position="5.5 1.5 -8" id="js--fire5" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;">
                 <a-entity class="fire1model" id="fire5" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
                 <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
                 <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
                 <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
             </a-entity>
 
-            <a-entity position="-6.2 1.4 -2.4" id="js--fire6" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
+            <a-entity position="-6.2 1.4 -2.4" id="js--fire6" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
                 <a-entity class="fire1model" id="fire6" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
                 <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
                 <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
                 <a-entity class="fire4model" gltf-model="#fire4asset" rotation="0 67.5 0"></a-entity>
             </a-entity>
 
-        <a-entity position="-5 1.2 0" id="js--fire7" class="fire" sound="src: #fireaudio; volume: 2; loop: true; autoplay: true;" scale="1.4 1.4 1.4">
+        <a-entity position="-5 1.2 0" id="js--fire7" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;" scale="1.4 1.4 1.4">
             <a-entity class="fire1model" id="fire7" gltf-model="#fire1asset" rotation="0 0 0" raycaster-listen></a-entity>
             <a-entity class="fire2model" gltf-model="#fire2asset" rotation="0 22.5 0"></a-entity>
             <a-entity class="fire3model" gltf-model="#fire3asset" rotation="0 45 0"></a-entity>
@@ -130,11 +138,11 @@
     <!-- Brandende kamer eind -->
 
     <!-- Kleedkamer -->
-        <a-entity position="10 1.2 0" material="fog: false">
+        <a-entity position="10 1.2 0" >
         <a-obj-model class="js--helmet js--clothes" src="#helmet-obj" position="-1.9 -0.37 -1.7" scale="0.0015 0.0015 0.0015" color="red"></a-obj-model>
         <a-obj-model class="js--brandslang js--pickup" src="#brandslang-obj" position="10.2 0.2 -0.5" rotation="0 270 0" scale="0.1 0.1 0.1" color="white"></a-obj-model>
 
-        <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 -1 0.9" scale="1 1 1" rotation="0 90 0" link="href: straat.html;"></a-obj-model>
+        <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 -1 0.9" scale="1 1 1" rotation="0 90 0" sound="src: #firedepartment; volume: 1; loop: true; autoplay: true;" ></a-obj-model>
 
         <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -5.8" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
         <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -4.4" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
@@ -191,9 +199,10 @@
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -20" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -14" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -20" scale="1 1 1"></a-obj-model>
+        <a-plane class="js--housedoor" rotation="0 90 0" position="1.05 0 -18.55" color="brown" height="2.1" width="0.9" ></a-plane>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -26" scale="1 1 1"></a-obj-model>
 
-        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -14" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -14" scale="1 1 1"sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
 
         <a-sky color="#9cc2e6"></a-sky>
 
