@@ -13,6 +13,7 @@ window.onload = () => {
     const boots = document.getElementsByClassName('js--boots');
     const helmet = document.getElementsByClassName('js--helmet');
     const text = document.getElementById('eindetekst');
+    var equipment = 0
     let hold = null;
 
     // constanten voor tp
@@ -25,10 +26,12 @@ window.onload = () => {
     // tp
     for (let i = 0; i < kleedkamerDeur.length; i++) {
         kleedkamerDeur[i].onmouseenter = (event) => {
-          position.setAttribute("position", "10 1.63 -20");
-          kleedkamerDeur[i].setAttribute('sound', "volume: 0")
-          for (let i = 0; i < truck.length; i++) {
-            truck[i].setAttribute('sound', "volume: 1")
+            if (equipment == 3) {
+                position.setAttribute("position", "10 1.63 -20");
+                kleedkamerDeur[i].setAttribute('sound', "volume: 0")
+                for (let i = 0; i < truck.length; i++) {
+                  truck[i].setAttribute('sound', "volume: 1")
+                  }
             }
         };
       }
@@ -102,6 +105,7 @@ window.onload = () => {
             const planeSuit = document.getElementById('js--plSuit');
             planeSuit.setAttribute('color', 'green');
             this.remove();
+            equipment += 1;
         });
     }
 
@@ -111,6 +115,7 @@ window.onload = () => {
             const planeBoots = document.getElementById('js--plBoots');
             planeBoots.setAttribute('color', 'green');
             this.remove();
+            equipment += 1;
         });
     }
 
@@ -120,6 +125,7 @@ window.onload = () => {
             const planeHelmet = document.getElementById('js--plHelm');
             planeHelmet.setAttribute('color', 'green');
             this.remove();
+            equipment += 1;
         });
     }
 }
