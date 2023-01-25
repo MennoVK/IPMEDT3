@@ -1,11 +1,11 @@
 window.onload = () => {
-    //--js variabelen van de straat--
+    // js constanten van de straat
     const lock = document.getElementsByClassName('js--lock');
     var cameraEl = document.getElementById("js--camera");
     var planeEl = document.getElementById('js--lock');
     var cylinderEl = document.getElementById("js--cord");
 
-    //--js variabelen van de kleedkamer--
+    // js constanten van de kleedkamer
     const camera = document.getElementById("js--camera");
     const bank = document.getElementsByClassName('js--bank');
     const pickups = document.getElementsByClassName('js--pickup');
@@ -53,7 +53,7 @@ window.onload = () => {
       }
 
 
-    //--js straat
+    // js straat
     function updateCylinderHeight() {
         var cameraPos;
 
@@ -76,7 +76,7 @@ window.onload = () => {
     // }
 
 
-    //--js kleedkamer
+    // js kleedkamer
     for (let i=0; i < bank.length; i++) {
         bank[i].addEventListener('click', function(evt) {
             let att = document.createAttribute("animation");
