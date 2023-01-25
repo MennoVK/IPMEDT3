@@ -1,19 +1,15 @@
 window.onload = () =>{
+    console.log('halloo')
     const camera = document.getElementById("js--camera");
     const bank = document.getElementsByClassName('js--bank');
 
     const pickups = document.getElementsByClassName('js--pickup');
-    const clothes = document.getElementsByClassName('js--clothes');
-    const placeholder = document.getElementsByClassName('js--kapstok');
-    const door = document.getElementsByClassName('js--door');
+    const suit = document.getElementsByClassName('js--suit');
 
     const text = document.getElementById('eindetekst');
 
-    let scene = document.getElementById('js--scene');
-
     let hold = null;
 
-    let helmet = null;
 
     for (let i=0; i < bank.length; i++) {
         bank[i].addEventListener('click', function(evt) {
@@ -37,34 +33,27 @@ window.onload = () =>{
     }
     addListeners();
 
-    for (let i=0; i < clothes.length; i++) {
-        clothes[i].addEventListener('click', function(evt){
-            if (helmet == null) {
-                const text = document.getElementById("js--text");
-                text.setAttribute('text', 'value: Je hebt je helm opgedaan!; color: black;');
-                text.setAttribute('position', '-1.7 0.2 -1.7');
-                this.remove();
-                helmet = "taken";
-                console.log(text)
-            }
-        })
+    for (let i=0; i < suit.length; i++) {
+        console.log('Suit is aan');
+        const planeSuit = document.getElementById('js--plSuit');
+        planeSuit.setAttribute('color', 'green');
     }
 
-    for(let i=0; i < placeholder.length; i++) {
-        placeholder[i].addEventListener('click', function(evt) {
-            if (hold == "box") {
-                let box = document.createElement('a-box');
-                box.setAttribute("class", "js--pickup js--interact");
-                box.setAttribute("color", "green");
-                box.setAttribute("position", {x: this.getAttribute('position').x,
-                y:"0.5", z: this.getAttribute('position').z});
-                scene.appendChild(box);
-                document.getElementById("js--hold").remove();
-                addListeners();
-                hold = null;
-            }
-        });
-    }
+    // for(let i=0; i < placeholder.length; i++) {
+    //     placeholder[i].addEventListener('click', function(evt) {
+    //         if (hold == "box") {
+    //             let box = document.createElement('a-box');
+    //             box.setAttribute("class", "js--pickup js--interact");
+    //             box.setAttribute("color", "green");
+    //             box.setAttribute("position", {x: this.getAttribute('position').x,
+    //             y:"0.5", z: this.getAttribute('position').z});
+    //             scene.appendChild(box);
+    //             document.getElementById("js--hold").remove();
+    //             addListeners();
+    //             hold = null;
+    //         }
+    //     });
+    // }
 
     // van Cas: pseudocode eindetekst verplaatsen
     // als laatste vuur uit is:
