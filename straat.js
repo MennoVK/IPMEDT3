@@ -10,6 +10,7 @@ window.onload = () => {
     const bank = document.getElementsByClassName('js--bank');
     const pickups = document.getElementsByClassName('js--pickup');
     const suit = document.getElementsByClassName('js--suit');
+    const boots = document.getElementsByClassName('js--boots');
     const text = document.getElementById('eindetekst');
     let hold = null;
 
@@ -65,6 +66,15 @@ window.onload = () => {
             console.log('Suit is aan');
             const planeSuit = document.getElementById('js--plSuit');
             planeSuit.setAttribute('color', 'green');
+            this.remove();
+        });
+    }
+
+    for (let i=0; i < boots.length; i++) {
+        boots[i].addEventListener('click', function() {
+            console.log('Schoenen zijn aan');
+            const planeBoots = document.getElementById('js--plBoots');
+            planeBoots.setAttribute('color', 'green');
             this.remove();
         });
     }
