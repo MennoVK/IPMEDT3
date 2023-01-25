@@ -26,7 +26,7 @@ window.onload = () => {
     // tp
     for (let i = 0; i < kleedkamerDeur.length; i++) {
         kleedkamerDeur[i].onmouseenter = (event) => {
-            if (equipment == 3) {
+            if (equipment == 4) {
                 position.setAttribute("position", "10 1.63 -20");
                 kleedkamerDeur[i].setAttribute('sound', "volume: 0")
                 for (let i = 0; i < truck.length; i++) {
@@ -93,6 +93,7 @@ window.onload = () => {
                     camera.innerHTML += `<a-obj-model class="js--brandslang" src="#brandslang-obj" position="0.3 0 -0.3" scale="0.1 0.1 0.1" color="white"></a-obj-model>`;
                     hold = "box";
                     this.remove();
+                    equipment += 1;
                 }
             })
         }
