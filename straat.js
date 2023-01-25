@@ -11,6 +11,7 @@ window.onload = () => {
     const pickups = document.getElementsByClassName('js--pickup');
     const suit = document.getElementsByClassName('js--suit');
     const boots = document.getElementsByClassName('js--boots');
+    const helmet = document.getElementsByClassName('js--helmet');
     const text = document.getElementById('eindetekst');
     let hold = null;
 
@@ -75,6 +76,15 @@ window.onload = () => {
             console.log('Schoenen zijn aan');
             const planeBoots = document.getElementById('js--plBoots');
             planeBoots.setAttribute('color', 'green');
+            this.remove();
+        });
+    }
+
+    for (let i=0; i < helmet.length; i++) {
+        helmet[i].addEventListener('click', function() {
+            console.log('Helm is op');
+            const planeHelmet = document.getElementById('js--plHelm');
+            planeHelmet.setAttribute('color', 'green');
             this.remove();
         });
     }
