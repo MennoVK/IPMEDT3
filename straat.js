@@ -24,6 +24,9 @@ window.onload = () => {
     const truck = document.getElementsByClassName('js--truck')
     const fire = document.getElementsByClassName('fire');
 
+    // voor in huis
+    var geblust = 0;
+
     // tp
     for (let i = 0; i < kleedkamerDeur.length; i++) {
         kleedkamerDeur[i].onmouseenter = (event) => {
@@ -96,6 +99,7 @@ window.onload = () => {
                     hold = "box";
                     this.remove();
                     equipment += 1;
+                    helmOp();
                 }
             })
         }
@@ -122,20 +126,24 @@ window.onload = () => {
         });
     }
 
+    let helmOp = () =>{
+        const helmetUpperPov = document.getElementById('js--upperPov');
+        const helmetLowerPov = document.getElementById('js--lowerPov');
+        helmetUpperPov.setAttribute('src', './assets/models/materials/pov-upper-helmet.png');
+        helmetUpperPov.setAttribute('position', '0 0.5 -0.5');
+        helmetUpperPov.setAttribute('width', '5');
+        helmetUpperPov.setAttribute('height', '0.5');
+
+        helmetLowerPov.setAttribute('src', './assets/models/materials/pov-lower-helmet.png');
+        helmetLowerPov.setAttribute('position', '0 -0.5 -0.5');
+        helmetLowerPov.setAttribute('width', '5');
+        helmetLowerPov.setAttribute('height', '0.5');
+    }
+
     for (let i=0; i < helmet.length; i++) {
         helmet[i].addEventListener('click', function() {
-            const helmetUpperPov = document.getElementById('js--upperPov');
-            const helmetLowerPov = document.getElementById('js--lowerPov');
-            helmetUpperPov.setAttribute('src', './assets/models/materials/pov-upper-helmet.png');
-            helmetUpperPov.setAttribute('position', '0 0.5 -0.5');
-            helmetUpperPov.setAttribute('width', '5');
-            helmetUpperPov.setAttribute('height', '0.5');
-
-            helmetLowerPov.setAttribute('src', './assets/models/materials/pov-lower-helmet.png');
-            helmetLowerPov.setAttribute('position', '0 -0.5 -0.5');
-            helmetLowerPov.setAttribute('width', '5');
-            helmetLowerPov.setAttribute('height', '0.5');
-
+            
+            helmOp();
             console.log('Helm is op'); 
             const planeHelmet = document.getElementById('js--plHelm');
             planeHelmet.setAttribute('color', 'green');
@@ -143,4 +151,15 @@ window.onload = () => {
             equipment += 1;
         });
     }
+
+    // voor in huis
+    for (let i = 0; i < fire.length; i++) {
+        fire[i].onmouseenter = (event) => {
+            if (geblust == 0) {
+                text.setAttribute('position', '-2 3 1')
+            }
+        };
+      }
+
+
 }
