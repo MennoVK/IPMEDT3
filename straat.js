@@ -12,6 +12,7 @@ window.onload = () => {
     const suit = document.getElementsByClassName('js--suit');
     const boots = document.getElementsByClassName('js--boots');
     const helmet = document.getElementsByClassName('js--helmet');
+    const check = document.getElementById('js--check')
     const text = document.getElementById('eindetekst');
     var equipment = 0
     let hold = null;
@@ -27,6 +28,7 @@ window.onload = () => {
     for (let i = 0; i < kleedkamerDeur.length; i++) {
         kleedkamerDeur[i].onmouseenter = (event) => {
             if (equipment == 4) {
+                check.setAttribute('color', 'green');
                 position.setAttribute("position", "10 1.63 -20");
                 kleedkamerDeur[i].setAttribute('sound', "volume: 0")
                 for (let i = 0; i < truck.length; i++) {
