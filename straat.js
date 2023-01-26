@@ -137,7 +137,7 @@ window.onload = () => {
         helmetLowerPov.setAttribute('src', './assets/models/materials/pov-lower-helmet.png');
         helmetLowerPov.setAttribute('position', '0 -0.5 -0.5');
         helmetLowerPov.setAttribute('width', '5');
-        helmetLowerPov.setAttribute('height', '0.5');
+        helmetLowerPov.setAttribute('height', '0.3');
     }
 
     for (let i=0; i < helmet.length; i++) {

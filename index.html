@@ -187,13 +187,7 @@
 
      <!-- Straat -->
      <a-entity position="0 1.2 -10" material="fog: false"> 
-        <div class="todo" id="todo">
-            <h1>To Do:</h1>
-            <h2>Maak de brandspuit vast aan de brandweerwagen</h2>
-            <br>
-            <h2>Ga het huis van de brand binnen</h2>
-        </div>
-
+        <!-- <a-image src="./assets/models/materials/road-openworld.jpg" rotation="0 180 0" position="8 2 -26" width="15" height="10" ></a-image> -->
         <a-entity>
             <a-image src="./assets/models/materials/smoke-texture.png" rotation="0 270 0" position="1.06 1 -15.8" width="2" height="2"
             animation="property: position; to: 1.08 2 -15; dur: 13000; easing: easeInOutBack; loop: true;"></a-image>
@@ -203,19 +197,22 @@
             animation="property: position; to: 1.08 4.5 -18.5; delay: 7000; dur: 17000; easing: easeInOutBack; loop: true;"></a-image>
         </a-entity>
 
-        <a-entity text="value:Koppel de spuit door \n naar het vlak te kijken; color: white; width: 2px;" rotation="0 270 0" position="6.5 0.52 -13.4"></a-entity>
-        <a-plane id="js--lock" class="js--lock" position="6.54 0.2 -13.95" color="#3d7d97" rotation="0 -90 0" width="1" height="1.4"></a-plane>
-        <a-cylinder id="js--cord" position="6.30 0.10 -13.67" rotation="90 90 0" color="#900000" scale="0.04 0.04 0.04"></a-cylinder>
+        <a-entity text="value:Koppel de spuit door \n naar het vlak te kijken; color: white; width: 2px;" rotation="0 270 0" position="6.5 0.52 -17.4"></a-entity>
+        <a-plane id="js--lock" class="js--lock" position="6.54 0.2 -17.95" color="#3d7d97" rotation="0 -90 0" width="1" height="1.4"></a-plane>
+        <a-cylinder id="js--cord" position="6.30 0.10 -17.67" rotation="90 90 0" color="#900000" scale="0.04 0.04 0.04"></a-cylinder>
+
+        <!-- <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="7 -1 -8" rotation="0 90 0" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="13.65 -1 -8" rotation="0 90 0" scale="1 1 1.1"></a-obj-model> -->
         
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -8" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -14" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -20" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -14" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -20" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -14" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -20" scale="1 1 1"></a-obj-model>
         <a-plane class="js--housedoor" rotation="0 90 0" position="1.05 0 -18.55" color="brown" height="2.1" width="0.9" ></a-plane>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="14.5 -1 -26" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -26" scale="1 1 1"></a-obj-model>
 
-        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -14" scale="1 1 1"sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
+        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -18" scale="1 1 1"sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
 
         <a-sky color="#9cc2e6"></a-sky>
 
