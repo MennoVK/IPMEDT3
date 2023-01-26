@@ -1,9 +1,7 @@
 window.onload = () => {
     // js constanten van de straat
     const lock = document.getElementsByClassName('js--lock');
-    var cameraEl = document.getElementById("js--camera");
-    var planeEl = document.getElementById('js--lock');
-    var cylinderEl = document.getElementById("js--cord");
+    const cable = document.getElementById('js--cable');
 
     // js constanten van de kleedkamer
     const camera = document.getElementById("js--camera");
@@ -59,26 +57,13 @@ window.onload = () => {
 
 
     // js straat
-    function updateCylinderHeight() {
-        var cameraPos;
-
-        var cameraPos = cameraEl.getAttribute("position");
-        var planePos = planeEl.getAttribute("position");
-
-        var distance = cameraPos.distanceTo(planePos);
-        
-        cylinderEl.setAttribute("scale", { x: 0.04, y: distance, z: 0.04 });
-        console.log(cylinderEl.getAttribute('scale'));
+    for (let i=0; i < lock.length; i++) {
+        lock[i].addEventListener('click', function() {
+            console.log('Je kijkt naar het lock systeem');
+            cable.setAttribute('src', '#cable-obj');
+            cable.setAttribute('mtl', '#cable-material');
+        });
     }
-
-    // for (let i=0; i < lock.length; i++) {
-    //     lock[i].addEventListener('click', function() {
-    //         console.log('Je kijkt naar het lock systeem');
-    //         if (hold == false) {
-    //             setInterval(updateCylinderHeight, 50);
-    //         }
-    //     });
-    // }
 
 
     // js kleedkamer
