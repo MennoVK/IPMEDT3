@@ -1,4 +1,6 @@
 window.onload = () => {
+    console.log('straat.js')
+
     // js constanten van de straat
     const lock = document.getElementsByClassName('js--lock');
     const cable = document.getElementById('js--cable');
