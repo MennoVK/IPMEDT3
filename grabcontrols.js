@@ -4,6 +4,7 @@ let jetholding = document.getElementById("js--jet--holding")
 let planeSuit = document.getElementById('js--plSuit');
 let planeBoots = document.getElementById('js--plBoots');
 let planeHelmet = document.getElementById('js--plHelmet');
+let planeBrandspuit = document.getElementById('js--plBrandspuit')
 
 let equipment = 0
 
@@ -21,23 +22,50 @@ AFRAME.registerComponent('grip-logging',{
         let suitpos = suit.object3D.getWorldPosition(new THREE.Vector3())
         let helmetpos = helmet.object3D.getWorldPosition(new THREE.Vector3())
 
-        const jetpos = walljet.object3D.getWorldPosition(new THREE.Vector3())
-      
+        let jetpos = walljet.object3D.getWorldPosition(new THREE.Vector3())
+        let aangesloten = null;
+
+        for (let i=0; i < lock.length; i++) {
+            lock[i].addEventListener('click', function() {
+                console.log('Je kijkt naar het lock systeem');
+                cable.setAttribute('src', '#cable-obj');
+                cable.setAttribute('mtl', '#cable-material');
+                aangesloten = 'aangesloten';
+    
+                const lockText = document.getElementById('js--lockText');
+                lockText.setAttribute('text', 'color: green;')
+    
+                const doorText = document.getElementById('js--doorText');
+                doorText.remove();
+            });
+        }
+
 
         if ((rightpos.x > (firstdoorpos.x-1) && rightpos.x < (firstdoorpos.x+1)) && (rightpos.y > (firstdoorpos.y-1) && rightpos.z < (firstdoorpos.y+1)) && (rightpos.y > (firstdoorpos.z-0.5) && rightpos.z < (firstdoorpos.z+0.5))){
           rig.setAttribute("position", "1.5 -15 0")
           rig.setAttribute("rotation", "0 0 0")
-          console.log(1)
+        }
+
+        if (aangesloten == 'aangesloten'){
+          
+          if ((rightpos.x > (seconddoorpos.x-1) && rightpos.x < (seconddoorpos.x+1)) &&  (rightpos.y > (seconddoorpos.y-1) && rightpos.y < (seconddoorpos.y+1)) && (rightpos.z > (seconddoorpos.z-0.5) && rightpos.z < (seconddoorpos.z+0.5))){
+            rig.setAttribute("position", "-3 0 -4")
+            rig.setAttribute("rotation", "0 0 0")
+          }
         }
 
         if (equipment == 4){
-          if ((rightpos.x > (seconddoorpos.x-1) && rightpos.x < (seconddoorpos.x+1)) &&  (rightpos.y > (seconddoorpos.y-1) && rightpos.y < (seconddoorpos.y+1)) && (rightpos.z > (seconddoorpos.z-0.5) && rightpos.z < (seconddoorpos.z+0.5))){
+          if ((rightpos.x > (thirddoorpos.x-1) && rightpos.x < (thirddoorpos.x+1)) &&  (rightpos.y > (thirddoorpos.y-1) && rightpos.y < (thirddoorpos.y+1)) && (rightpos.z > (thirddoorpos.z-0.5) && rightpos.z < (thirddoorpos.z+0.5))){
             rig.setAttribute("position", "-3 -10 -4")
             rig.setAttribute("rotation", "0 225 0")
           }
         }
 
+        
+
+
         else if ((rightpos.x > (jetpos.x-0.5) && rightpos.x < (jetpos.x+0.5)) && (rightpos.y > (jetpos.y-0.5) && rightpos.y < (jetpos.y+0.5)) && (rightpos.z > (jetpos.z-0.5) && rightpos.z < (jetpos.z+0.5))){
+          planeBrandspuit.setAttribute('color', 'green');  
           walljet.setAttribute("visible",false);
           jetholding.setAttribute("visible",true);
           equipment += 1;
