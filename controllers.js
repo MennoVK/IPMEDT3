@@ -1,7 +1,7 @@
-
+const right = document.getElementById("righthand")
 const water = document.getElementById("js--water");
 const fire = document.getElementsByClassName("fire")
-
+const camera = document.getElementById("js--camera")
 const rig = document.getElementById("rig")
 
 var spraying = false;
@@ -113,4 +113,5 @@ AFRAME.registerComponent('thumbstick-logging',{
       if (evt.detail.y > 0.85) { rig.object3D.position.z += 0.02 * direction.z; rig.object3D.position.x += 0.02 * direction.x; }
       if (evt.detail.y < -0.85) { rig.object3D.position.z -= 0.02 * direction.z; rig.object3D.position.x -= 0.02 * direction.x; }
     }
-});
+  });
+

@@ -15,6 +15,7 @@ AFRAME.registerComponent('grip-logging',{
     logGrip: function (evt) {
         let rightpos = right.object3D.getWorldPosition(new THREE.Vector3())
         let firstdoorpos = firstdoor.object3D.getWorldPosition(new THREE.Vector3())
+        let seconddoorpos = seconddoor.object3D.getWorldPosition(new THREE.Vector3())
 
         let bootspos = boots.object3D.getWorldPosition(new THREE.Vector3())
         let suitpos = suit.object3D.getWorldPosition(new THREE.Vector3())
@@ -23,9 +24,17 @@ AFRAME.registerComponent('grip-logging',{
         const jetpos = walljet.object3D.getWorldPosition(new THREE.Vector3())
       
 
-        if ((rightpos.x > (firstdoorpos.x-1) && rightpos.x < (firstdoorpos.x+1)) && (rightpos.z > (firstdoorpos.z-0.5) && rightpos.z < (firstdoorpos.z+0.5))){
+        if ((rightpos.x > (firstdoorpos.x-1) && rightpos.x < (firstdoorpos.x+1)) && (rightpos.y > (firstdoorpos.y-1) && rightpos.z < (firstdoorpos.y+1)) && (rightpos.y > (firstdoorpos.z-0.5) && rightpos.z < (firstdoorpos.z+0.5))){
           rig.setAttribute("position", "1.5 -15 0")
           rig.setAttribute("rotation", "0 0 0")
+          console.log(1)
+        }
+
+        if (equipment == 4){
+          if ((rightpos.x > (seconddoorpos.x-1) && rightpos.x < (seconddoorpos.x+1)) &&  (rightpos.y > (seconddoorpos.y-1) && rightpos.y < (seconddoorpos.y+1)) && (rightpos.z > (seconddoorpos.z-0.5) && rightpos.z < (seconddoorpos.z+0.5))){
+            rig.setAttribute("position", "-3 -10 -4")
+            rig.setAttribute("rotation", "0 225 0")
+          }
         }
 
         else if ((rightpos.x > (jetpos.x-0.5) && rightpos.x < (jetpos.x+0.5)) && (rightpos.y > (jetpos.y-0.5) && rightpos.y < (jetpos.y+0.5)) && (rightpos.z > (jetpos.z-0.5) && rightpos.z < (jetpos.z+0.5))){
