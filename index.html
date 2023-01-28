@@ -8,39 +8,13 @@
     <script defer src="script.js"></script>
     <script defer src="straat.js"></script>
     <script defer src="grabcontrols.js"></script>
+    <script defer src="teleportation.js"></script>
     <title>My first VR world</title>
 </head>
 <body>
     //fog="type: exponential; color: #AAA; density: 0.2;"
     <a-scene stats>
-
-        <a-sky src="assets/models/skybox.png"></a-sky>
-
-        <a-entity id="rig" position="0 0 0">
-            <a-camera id="js--camera">
-                <a-image id="js--upperPov"></a-image>
-                <a-image id="js--lowerPov"></a-image>
-                <a-cursor 
-                    animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 500; from: 0.5 0.5 0.5; to: 1 1 1"
-                    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.5 0.5 0.5"
-                    animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 1000; to: 1 1 1"
-                
-                    id="js--cursor"
-                    cursor = "fuse: true; fuseTimeout: 2000"
-                    material = "shader: flat"
-                    color="gold"
-                    raycaster = "objects: .js--housedoor, .js--position"
-                ></a-cursor>
-            </a-camera>
-            <a-entity id="righthand" oculus-touch-controls="hand: right;" grip-logging triggerdown-logging triggerup-logging thumbstick-logging>
-                <a-entity id="js--jet--holding" visible="false" clickable position="0 -0.05 0.75" rotation="90 180 0" scale="0.5 0.5 0.5">
-                    <a-entity position="0 1.63 0" rotation="0 180 0" gltf-model="#brandslang" raycaster="objects: .fire1model"></a-entity>
-                    <a-cylinder id="js--water" sound="src: #whitenoise; volume: 5; loop: true" rotation="90 0 0" position="0 1.63 0" scale="1 0 1" radius="0.05" height="15" material="color: #3295a8; transparent: true; opacity: 0.25" ></a-cylinder>
-                </a-entity>
-            </a-entity>
-        </a-entity>
-
-        <a-assets>
+<a-assets>
             <!-- Menno -->
             <a-asset-item id="brandslang" src="assets/models/brandslang.glb"></a-asset-item>
             <a-asset-item id="fire1asset" src="assets/models/fire1.glb"></a-asset-item>
@@ -93,14 +67,40 @@
             <a-asset-item id="cable-obj" src="./assets/models/cable.obj"></a-asset-item>
             <a-asset-item id="cable-material" src="./assets/models/materials/cable.mtl"></a-asset-item>
         </a-assets>
+
+        <a-sky src="assets/models/skybox.png"></a-sky>
+
+        <a-entity id="rig" position="0 -20 0">
+            <a-camera id="js--camera">
+                <a-image id="js--upperPov"></a-image>
+                <a-image id="js--lowerPov"></a-image>
+                <a-cursor 
+                    animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 500; from: 0.5 0.5 0.5; to: 1 1 1"
+                    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.5 0.5 0.5"
+                    animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 1000; to: 1 1 1"
+                
+                    id="js--cursor"
+                    cursor = "fuse: true; fuseTimeout: 2000"
+                    material = "shader: flat"
+                    color="gold"
+                    raycaster = "objects: .js--housedoor, .js--paarsecirckel"
+                ></a-cursor>
+            </a-camera>
+            <a-entity id="righthand" oculus-touch-controls="hand: right;" grip-logging triggerdown-logging triggerup-logging thumbstick-logging>
+                <a-entity id="js--jet--holding" visible="false" clickable position="0 -0.05 0.75" rotation="90 180 0" scale="0.5 0.5 0.5">
+                    <a-entity position="0 1.63 0" rotation="0 180 0" gltf-model="#brandslang" raycaster="objects: .fire1model"></a-entity>
+                    <a-cylinder id="js--water" sound="src: #whitenoise; volume: 5; loop: true" rotation="90 0 0" position="0 1.63 0" scale="1 0 1" radius="0.05" height="15" material="color: #3295a8; transparent: true; opacity: 0.25" ></a-cylinder>
+                </a-entity>
+            </a-entity>
+        </a-entity>
         
     <!-- Intro Kamer -->
         <a-entity position="0 -20 0" >
             <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" rotation="0 0 0" position="0 0 1"></a-obj-model>
             <a-obj-model id="introtekst" gltf-model="#tekstBegin" scale="0.2 0.2 0.2" rotation="0 270 0" position="3.9 1.55 -5"></a-obj-model>
 
-            <a-cylinder class="js--position" position="2 -0.2 -3.5" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
-            <a-cylinder class="js--position" position="2 -0.2 0" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
+            <a-cylinder class="js--paarsecirckel" position="2 -0.2 -3.5" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
+            <a-cylinder class="js--paarsecirckel" position="2 -0.2 0" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
         </a-entity>
     <!-- Intro Kamer eind -->
 
@@ -215,8 +215,8 @@
             <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 0 0.9"  rotation="0 90 0" sound="src: #firedepartment; volume: 1; loop: true; autoplay: true;" ></a-obj-model>
             <a-cylinder id="js--check" position="11.6 2.2 1" rotation="90 0 0" scale="0.1 0.1 0.1" color="red"></a-cylinder>
 
-            <a-cylinder class="js--position" position="12 -0.2 -3.5" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
-            <a-cylinder class="js--position" position="12 -0.2 0" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
+            <a-cylinder class="js--paarsecirckel" position="12 -0.2 -3.5" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
+            <a-cylinder class="js--paarsecirckel" position="12 -0.2 0" color="purple" scale="0.6 0.6 0.6"></a-cylinder>
 
             <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 0 -5.8" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
             <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 0 -4.4" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
@@ -269,13 +269,13 @@
             <a-entity id="js--doorText" text="value: maak eerst de brandslang vast \n aan de brandweer wagen; color: white; width: 3px;" rotation="0 90 0" position="1.12 1.4 -19.20"></a-entity>
 
             <a-entity>
-                <a-cylinder class="js--position" position="8 -0.6 -10" color="purple"></a-cylinder>
-                <a-cylinder class="js--position" position="4 -0.6 -17" color="purple"></a-cylinder>
-                <a-cylinder class="js--position" position="4 -0.6 -22" color="purple"></a-cylinder>
-                <a-cylinder class="js--position" position="8 -0.6 -25" color="purple"></a-cylinder>
-                <a-cylinder class="js--position" position="10 -0.6 -29" color="purple"></a-cylinder>
-                <a-cylinder class="js--position" position="16 -0.6 -29" color="purple"></a-cylinder>
-                <a-cylinder class="js--position" position="11 -0.6 -19" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="8 -0.6 -10" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="4 -0.6 -17" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="4 -0.6 -22" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="8 -0.6 -25" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="10 -0.6 -29" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="16 -0.6 -29" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="11 -0.6 -19" color="purple"></a-cylinder>
             </a-entity>
             
             <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 0 -8" ></a-obj-model>

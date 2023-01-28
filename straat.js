@@ -1,6 +1,4 @@
 window.onload = () => {
-    console.log('straat.js')
-
     // js constanten van de straat
     const lock = document.getElementsByClassName('js--lock');
     const cable = document.getElementById('js--cable');
@@ -16,9 +14,6 @@ window.onload = () => {
     const text = document.getElementById('eindetekst');
     var equipment = 0
     let hold = null;
-
-    //lopen
-    const lopen = document.getElementsByClassName('js--position');
 
     // constanten voor tp
     const position = document.getElementById('js--camera');
@@ -43,20 +38,6 @@ window.onload = () => {
                   }
             }
         };
-    }
-
-    // lopen
-    for(let i=0; i < lopen.length; i++){
-        lopen[i].onclick = (event) =>{
-            let att = document.createAttribute("animation");
-            circleposition = lopen[i].getAttribute("position");
-            console.log(circleposition)
-            var positionto = String(circleposition.x) + " " + "0" + " " + String(circleposition.z);
-            console.log(positionto)
-            att.value = "property: position; easing: linear; dur: 2000; to:" + positionto
-            rig.setAttribute("animation", att.value);
-            
-        }
     }
 
   
