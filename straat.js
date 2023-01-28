@@ -15,6 +15,9 @@ window.onload = () => {
     var equipment = 0
     let hold = null;
 
+    //lopen
+    const lopen = document.getElementsByClassName('js--position');
+
     // constanten voor tp
     const position = document.getElementById('js--camera');
     const kleedkamerDeur = document.getElementsByClassName('js--door');
@@ -38,6 +41,16 @@ window.onload = () => {
                   }
             }
         };
+    }
+
+    // lopen
+    for (let i = 0; i < lopen.length; i++) {
+        lopen[i].addEventListener('click', function() {
+            let att = document.createAttribute('animation');
+            att.value = 'property: position; easing: linear; dur: 2000; to: ' +
+            this.getAttribute('position').x + ' 1.63 ' + (this.getAttribute('position').z - ' 10 ');
+            camera.setAttribute('animation', att.value);
+        })
     }
   
     for (let i = 0; i < housedoor.length; i++) {
