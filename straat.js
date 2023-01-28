@@ -21,6 +21,7 @@ window.onload = () => {
     const housedoor = document.getElementsByClassName('js--housedoor');
     const truck = document.getElementsByClassName('js--truck')
     const fire = document.getElementsByClassName('fire');
+    let aangesloten = null;
 
     // voor in huis
     var geblust = 0;
@@ -39,21 +40,21 @@ window.onload = () => {
         };
       }
   
-      for (let i = 0; i < housedoor.length; i++) {
+    for (let i = 0; i < housedoor.length; i++) {
         housedoor[i].onmouseenter = (event) => {
-        position.setAttribute("position", "0 1.63 0");
+            if (aangesloten == 'aangesloten') {
+                position.setAttribute("position", "0 1.63 0");
         
-        for (let i = 0; i < truck.length; i++) {
-          truck[i].setAttribute('sound', "volume: 0")
-          }
+                for (let i = 0; i < truck.length; i++) {
+                    truck[i].setAttribute('sound', "volume: 0")
+                }
           
-          for (let i = 0; i < fire.length; i++) {
-            fire[i].setAttribute('sound', "volume: 1")
+                for (let i = 0; i < fire.length; i++) {
+                    fire[i].setAttribute('sound', "volume: 1")
+                }
             }
         };
-  
-  
-      }
+    }
 
 
     // js straat
@@ -62,6 +63,13 @@ window.onload = () => {
             console.log('Je kijkt naar het lock systeem');
             cable.setAttribute('src', '#cable-obj');
             cable.setAttribute('mtl', '#cable-material');
+            aangesloten = 'aangesloten';
+
+            const lockText = document.getElementById('js--lockText');
+            lockText.setAttribute('text', 'color: green;')
+
+            const doorText = document.getElementById('js--doorText');
+            doorText.remove();
         });
     }
 

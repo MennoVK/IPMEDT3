@@ -194,7 +194,6 @@
 
      <!-- Straat -->
      <a-entity position="0 1.2 -10" material="fog: false"> 
-        <!-- <a-image src="./assets/models/materials/road-openworld.jpg" rotation="0 180 0" position="8 2 -26" width="15" height="10" ></a-image> -->
         <a-entity>
             <a-image src="./assets/models/materials/smoke-texture.png" rotation="0 270 0" position="1.06 1 -15.8" width="2" height="2"
             animation="property: position; to: 1.08 2 -15; dur: 13000; easing: easeInOutBack; loop: true;"></a-image>
@@ -204,12 +203,11 @@
             animation="property: position; to: 1.08 4.5 -18.5; delay: 7000; dur: 17000; easing: easeInOutBack; loop: true;"></a-image>
         </a-entity>
 
-        <a-entity text="value:Koppel de spuit door \n naar het vlak te kijken; color: white; width: 2px;" rotation="0 270 0" position="6.5 0.52 -17.4"></a-entity>
+        <a-entity id="js--lockText" text="value:Koppel de spuit door \n naar het vlak te kijken; color: white; width: 2px;" rotation="0 270 0" position="6.5 0.52 -17.4"></a-entity>
         <a-plane id="js--lock" class="js--lock" position="6.54 0 -17.95" color="#163540" rotation="0 -90 0" width="1" height="1"></a-plane>
         <a-obj-model id="js--cable" rotation="0 180 0" position="6.3 0.10 -17.87" scale="0.2 0.2 0.2"></a-obj-model>
 
-        <!-- <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="7 -1 -8" rotation="0 90 0" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="13.65 -1 -8" rotation="0 90 0" scale="1 1 1.1"></a-obj-model> -->
+        <a-entity id="js--doorText" text="value: maak eerst de brandslang vast \n aan de brandweer wagen; color: white; width: 3px;" rotation="0 90 0" position="1.12 0.4 -19.20"></a-entity>
         
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -8" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -14" scale="1 1 1"></a-obj-model>
