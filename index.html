@@ -14,7 +14,9 @@
 </head>
 <body>
     //fog="type: exponential; color: #AAA; density: 0.2;"
-    <a-scene  stats>
+    <a-scene stats>
+
+        <a-sky src="assets/models/skybox.png"></a-sky>
 
         <a-entity id="rig" position="21 0 0">
             <a-camera id="js--camera" position="0 1.63 0">
@@ -93,11 +95,15 @@
             <a-asset-item id="cable-obj" src="./assets/models/cable.obj"></a-asset-item>
             <a-asset-item id="cable-material" src="./assets/models/materials/cable.mtl"></a-asset-item>
         </a-assets>
-        <a-sky src="assets/models/skybox.png"></a-sky>
-
-
         
+        <!-- Intro Kamer -->
+        <a-entity position="15 0 0" >
+            <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" rotation="0 0 0" position="0 0 1"></a-obj-model>
+            <a-obj-model id="introtekst" gltf-model="#tekstBegin" scale="0.2 0.2 0.2" rotation="0 270 0" position="3.9 1.55 -5"></a-obj-model>
+        </a-entity>
+        <!-- Intro Kamer eind -->
 
+        <!-- Brandende kamer begin -->
         <a-entity scale="0.6 0.6 0.6">
             <a-obj-model id="eindetekst" gltf-model="#tekst" scale="0.7 0.7 0.7" rotation="0 0 0" position="-2 3 3"></a-obj-model>
 
@@ -156,51 +162,50 @@
 
     <!-- Kleedkamer -->
     <a-entity>
-        <a-entity id="js--jet" clickable position="10.25 0.2 -0.5" rotation="0 270 0" scale="0.8 0.8 0.8">
+        <a-entity id="js--jet" clickable position="10.25 1.5 -0.5" rotation="0 270 0" scale="0.8 0.8 0.8">
             <a-entity id="js--brandslang" gltf-model="#brandslang"></a-entity>
         </a-entity>
+        <a-obj-model src="#houder-obj" mtl="#houder-material" rotation="0 180 90" position="10 1.3 -0.5" scale="0.1 0.1 0.1"></a-obj-model>
 
-        <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 -1 0.9" scale="1 1 1" rotation="0 90 0" sound="src: #firedepartment; volume: 1; loop: true; autoplay: true;" ></a-obj-model>
-        <a-cylinder id="js--check" position="11.6 1.2 1" rotation="90 0 0" scale="0.1 0.1 0.1" color="red"></a-cylinder>
+        <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 0 0.9"  rotation="0 90 0" sound="src: #firedepartment; volume: 1; loop: true; autoplay: true;" ></a-obj-model>
+        <a-cylinder id="js--check" position="11.6 2.2 1" rotation="90 0 0" scale="0.1 0.1 0.1" color="red"></a-cylinder>
 
-        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -5.8" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
-        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -4.4" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
-        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -3" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
-        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 -1 -1.6" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
-        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 180 0" position="12 -1 -5.2" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
-        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 180 0" position="10.6 -1 -5.2" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 0 -5.8" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 0 -4.4" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 0 -3" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 90 0" position="13.2 0 -1.6" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 180 0" position="12 0 -5.2" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
+        <a-obj-model class="js--bank" src="#bank-obj" mtl="#bank-material" rotation="0 180 0" position="10.6 0 -5.2" scale="0.75 0.75 0.75" color="brown"></a-obj-model>
 
-        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 -90 0" position="13.8 0.4 -4.8" scale="1 1 1" color="orange"></a-obj-model>
-        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 -90 0" position="13.8 0.4 -7.8" scale="1 1 1" color="orange"></a-obj-model>
-        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 0 0" position="8.6 0.4 -5.8" scale="1 1 1" color="orange"></a-obj-model>
+        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 -90 0" position="13.8 1.7 -4.8"  color="orange"></a-obj-model>
+        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 -90 0" position="13.8 1.7 -7.8"  color="orange"></a-obj-model>
+        <a-obj-model class="js--kapstok" src="#kapstok-obj" mtl="#kapstok-material" rotation="0 0 0" position="8.6 1.7 -5.8"  color="orange"></a-obj-model>
 
-        <a-obj-model src="#houder-obj" mtl="#houder-material" rotation="0 180 90" position="10 0 -0.5" scale="0.1 0.1 0.1"></a-obj-model>
+        <a-image class="js--suit" src="./assets/models/materials/brandweer-pak.png" position="11.45 1.4 -5.8"></a-image>
+        <a-obj-model class="js--boots" src="#boots-obj" mtl="#boots-material" rotation="0 90 0" position="13.4 0.5 -1" scale="0.05 0.05 0.05"></a-obj-model>
+        <a-obj-model class="js--helmet" src="#helmet-obj" mtl="#helmet-material" rotation="0 270 0" position="13.5 0.65 -2.8" scale="0.15 0.15 0.15"></a-obj-model>
 
-        <a-image class="js--suit" src="./assets/models/materials/brandweer-pak.png" position="11.45 0.15 -5.8"></a-image>
-        <a-obj-model class="js--boots" src="#boots-obj" mtl="#boots-material" rotation="0 90 0" position="13.4 -0.5 -1" scale="0.05 0.05 0.05"></a-obj-model>
-        <a-obj-model class="js--helmet" src="#helmet-obj" mtl="#helmet-material" rotation="0 270 0" position="13.4 -0.2 -2.8" scale="0.15 0.15 0.15"></a-obj-model>
-
-        <a-entity position="10.05 0.5 -2.5" scale="0.3 0.3 0.3">
+        <a-entity position="10.05 1.7 -2.5" scale="0.3 0.3 0.3">
             <a-image src="./assets/models/materials/helm-silhouet.png" rotation="0 90 0"></a-image>
             <a-plane id="js--plHelm" color="red" rotation="0 90 0"></a-plane>
         </a-entity>
 
-        <a-entity position="10.05 0.5 -2" scale="0.3 0.3 0.3">
+        <a-entity position="10.05 1.7 -2" scale="0.3 0.3 0.3">
             <a-image src="./assets/models/materials/boots-silhouet.png" rotation="0 90 0"></a-image>
             <a-plane id="js--plBoots" color="red" rotation="0 90 0"></a-plane>
         </a-entity>
 
-        <a-entity position="10.05 0.5 -1.5" scale="0.3 0.3 0.3">
+        <a-entity position="10.05 1.7 -1.5" scale="0.3 0.3 0.3">
             <a-image src="./assets/models/materials/suit-silhouet.png" rotation="0 90 0"></a-image>
             <a-plane id="js--plSuit" color="red" rotation="0 90 0"></a-plane>
         </a-entity>
 
-        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" position="10 -1 1" scale="1 1 1" color="red"></a-obj-model>
+        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" position="10 0 1"  color="red"></a-obj-model>
     </a-entity>
      <!-- Kleedkamer eind -->
 
      <!-- Straat -->
-     <a-entity position="0 1.2 -10" material="fog: false"> 
+     <a-entity position="0 0 -10" material="fog: false"> 
         <a-entity>
             <a-image src="./assets/models/materials/smoke-texture.png" rotation="0 270 0" position="1.06 1 -15.8" width="2" height="2"
             animation="property: position; to: 1.08 2 -15; dur: 13000; easing: easeInOutBack; loop: true;"></a-image>
@@ -216,42 +221,37 @@
         <a-entity id="js--doorText" text="value: maak eerst de brandslang vast \n aan de brandweer wagen; color: white; width: 3px;" rotation="0 90 0" position="1.12 0.4 -19.20"></a-entity>
 
         <a-entity>
-            <a-cylinder class="js--position" position="8 -1.6 -10" color="purple" scale="1 1 1"></a-cylinder>
-            <a-cylinder class="js--position" position="5 -1.6 -15" color="purple" scale="1 1 1"></a-cylinder>
-            <a-cylinder class="js--position" position="4 -1.6 -22" color="purple" scale="1 1 1"></a-cylinder>
-            <a-cylinder class="js--position" position="8 -1.6 -25" color="purple" scale="1 1 1"></a-cylinder>
-            <a-cylinder class="js--position" position="10 -1.6 -29" color="purple" scale="1 1 1"></a-cylinder>
-            <a-cylinder class="js--position" position="16 -1.6 -29" color="purple" scale="1 1 1"></a-cylinder>
-            <a-cylinder class="js--position" position="11 -1.6 -19" color="purple" scale="1 1 1"></a-cylinder>
+            <a-cylinder class="js--position" position="8 -1.6 -10" color="purple" ></a-cylinder>
+            <a-cylinder class="js--position" position="5 -1.6 -15" color="purple" ></a-cylinder>
+            <a-cylinder class="js--position" position="4 -1.6 -22" color="purple" ></a-cylinder>
+            <a-cylinder class="js--position" position="8 -1.6 -25" color="purple" ></a-cylinder>
+            <a-cylinder class="js--position" position="10 -1.6 -29" color="purple" ></a-cylinder>
+            <a-cylinder class="js--position" position="16 -1.6 -29" color="purple" ></a-cylinder>
+            <a-cylinder class="js--position" position="11 -1.6 -19" color="purple" ></a-cylinder>
         </a-entity>
         
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -8" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -14" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -20" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -26" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -14" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -20" scale="1 1 1"></a-obj-model>
-        <a-plane class="js--housedoor" rotation="0 90 0" position="1.05 0 -18.55" color="brown" height="2.1" width="0.9" ></a-plane>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -26" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="7.35 -1 -32" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="13.35 -1 -32" scale="1 1 1"></a-obj-model>
-        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="19.35 -1 -32" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -8" ></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -14" ></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -20" ></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -26" ></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -14"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -20"></a-obj-model>
+        <a-plane class="js--housedoor" rotation="0 90 0" position="1.05 0 -18.55" color="brown" height="2.1" width="0.9"></a-plane>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -26"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="7.35 -1 -32"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="13.35 -1 -32"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="19.35 -1 -32"></a-obj-model>
 
         <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 90 0" position="14 -1 -8" scale="1 1 1.1"></a-obj-model>
         <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 90 0" position="7.5 -1 -8" scale="1 1 1.1"></a-obj-model>
         
         <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 -90 0" position="1 -1 -32" scale="1 1 1.1"></a-obj-model>
 
-        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -18" scale="1 1 1"sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
+        <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -18" sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
      </a-entity> -->
      <!-- Straat eind -->
 
-     <!-- Intro Kamer -->
-     <a-entity position="25 0 0" >
-        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" rotation="0 90 0" position="10 -1 1" scale="1 1 1"></a-obj-model>
-        <a-obj-model id="introtekst" gltf-model="#tekstBegin" scale="0.2 0.2 0.2" rotation="0 0 0" position="3.5 1 -2.9"></a-obj-model>
-    </a-entity>
-    <!-- Intro Kamer eind -->
+     
     </a-scene>
 </body>
 </html> 
