@@ -1,16 +1,13 @@
 
 const water = document.getElementById("js--water");
-const brandslang = document.getElementById("js--brandslang");
-const button = document.getElementById("js--button")
-const jet = document.getElementById("js--jet");
 const fire = document.getElementsByClassName("fire")
-const left = document.getElementById("lefthand")
-const right = document.getElementById("righthand")
+
 const rig = document.getElementById("rig")
-const camera = document.getElementById("js--camera")
 
 var spraying = false;
 
+
+//water animation
 function myTimer() {
     water.object3D.position.y += 0.01;
     water.object3D.position.x -= 0.01   ;
@@ -24,10 +21,13 @@ function second(){
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
-  }
+}
 
 animationspeed = 200
 
+
+
+//vuur animation
 rotate = () => {
     for(let i=0; i < fire.length; i++){
         rotation = randomNumber(30, 240)
@@ -40,6 +40,7 @@ setInterval(rotate, animationspeed);
 
 
 
+//bluslogica
 AFRAME.registerComponent('raycaster-listen', {
 	init: function () {
     this.el.addEventListener('raycaster-intersected', evt => {
@@ -71,7 +72,7 @@ AFRAME.registerComponent('raycaster-listen', {
 });
 
 
-
+//controllerlogica
 AFRAME.registerComponent('triggerdown-logging',{
     init: function () {
         this.el.addEventListener('triggerdown', this.logTriggerDown);
@@ -112,8 +113,4 @@ AFRAME.registerComponent('thumbstick-logging',{
       if (evt.detail.y > 0.85) { rig.object3D.position.z += 0.02 * direction.z; rig.object3D.position.x += 0.02 * direction.x; }
       if (evt.detail.y < -0.85) { rig.object3D.position.z -= 0.02 * direction.z; rig.object3D.position.x -= 0.02 * direction.x; }
     }
-  });
-
-
-
-//position="0 1.63 5"
+});
