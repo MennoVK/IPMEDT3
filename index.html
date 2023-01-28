@@ -40,6 +40,7 @@
             <!-- Cas -->
             <a-asset-item id="room" src="assets/models/room.glb"></a-asset-item>
             <a-asset-item id="tekst" src="assets/models/eindetekst.glb"></a-asset-item>
+            <a-asset-item id="tekstBegin" src="assets/models/Introtekst.glb"></a-asset-item>
 
             <!-- Jasper -->
             <a-asset-item id="bank-obj" src="./assets/models/bank.obj"></a-asset-item>
@@ -62,6 +63,9 @@
             <a-asset-item id="house-obj" src="./assets/models/house.obj"></a-asset-item>
             <a-asset-item id="house-material" src="./assets/models/materials/house.mtl"></a-asset-item>
 
+            <a-asset-item id="houseCorner-obj" src="./assets/models/houseCorner.obj"></a-asset-item>
+            <a-asset-item id="house-material" src="./assets/models/materials/house.mtl"></a-asset-item>
+
             <a-asset-item id="truck-obj" src="./assets/models/fireTruck.obj"></a-asset-item>
             <a-asset-item id="truck-material" src="./assets/models/materials/fireTruck.mtl"></a-asset-item>
 
@@ -74,7 +78,7 @@
             <a-asset-item id="cable-obj" src="./assets/models/cable.obj"></a-asset-item>
             <a-asset-item id="cable-material" src="./assets/models/materials/cable.mtl"></a-asset-item>
         </a-assets>
-        <a-sky color="#42adf5"></a-sky>
+        <a-sky src="assets/models/skybox.png"></a-sky>
 
         <a-entity id="rig">
             <a-camera id="js--camera" position="0 1.63 0"></a-camera>
@@ -210,17 +214,33 @@
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -8" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -14" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -20" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 -1 -26" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -14" scale="1 1 1"></a-obj-model>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -20" scale="1 1 1"></a-obj-model>
         <a-plane class="js--housedoor" rotation="0 90 0" position="1.05 0 -18.55" color="brown" height="2.1" width="0.9" ></a-plane>
         <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 180 0" position="13.7 -1 -26" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="7.35 -1 -32" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="13.35 -1 -32" scale="1 1 1"></a-obj-model>
+        <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" rotation="0 -90 0" position="19.35 -1 -32" scale="1 1 1"></a-obj-model>
+
+        <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 90 0" position="14 -1 -8" scale="1 1 1.1"></a-obj-model>
+        <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 90 0" position="7.5 -1 -8" scale="1 1 1.1"></a-obj-model>
+        
+        <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 -90 0" position="1 -1 -32" scale="1 1 1.1"></a-obj-model>
 
         <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -18" scale="1 1 1"sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
 
-        <a-sky color="#9cc2e6"></a-sky>
+      
 
      </a-entity>
      <!-- Straat eind -->
+
+     <!-- Intro Kamer -->
+     <a-entity position="25 1.2 0" >
+        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" rotation="0 90 0" position="10 -1 1" scale="1 1 1" color="red"></a-obj-model>
+        <a-obj-model id="introtekst" gltf-model="#tekstBegin" scale="0.2 0.2 0.2" rotation="0 0 0" position="3.5 1 -2.9" color></a-obj-model>
+    </a-entity>
+    <!-- Intro Kamer eind -->
     </a-scene>
 </body>
 </html> 
