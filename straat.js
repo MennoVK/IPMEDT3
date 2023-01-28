@@ -1,7 +1,7 @@
 // window.onload = () => {
 //     // js constanten van de straat
-    const lock = document.getElementsByClassName('js--lock');
-    const cable = document.getElementById('js--cable');
+//     const lock = document.getElementsByClassName('js--lock');
+//     const cable = document.getElementById('js--cable');
 
 //     // js constanten van de kleedkamer
 //     const camera = document.getElementById("js--camera");
@@ -12,8 +12,8 @@
 //     const helmet = document.getElementsByClassName('js--helmet');
 //     const check = document.getElementById('js--check')
 //     const text = document.getElementById('eindetekst');
-    var equipment = 0
-    let hold = null;
+//     var equipment = 0
+//     let hold = null;
 
 //     // constanten voor tp
 //     const position = document.getElementById('js--camera');
@@ -21,7 +21,7 @@
 //     const housedoor = document.getElementsByClassName('js--housedoor');
 //     const truck = document.getElementsByClassName('js--truck')
 //     const fire = document.getElementsByClassName('fire');
-    let aangesloten = null;
+//     let aangesloten = null;
 
 //     // voor in huis
 //     var geblust = 0;
@@ -59,20 +59,20 @@
 
 
 //     // js straat
-    for (let i=0; i < lock.length; i++) {
-        lock[i].addEventListener('click', function() {
-            console.log('Je kijkt naar het lock systeem');
-            cable.setAttribute('src', '#cable-obj');
-            cable.setAttribute('mtl', '#cable-material');
-            aangesloten = 'aangesloten';
+//     for (let i=0; i < lock.length; i++) {
+//         lock[i].addEventListener('click', function() {
+//             console.log('Je kijkt naar het lock systeem');
+//             cable.setAttribute('src', '#cable-obj');
+//             cable.setAttribute('mtl', '#cable-material');
+//             aangesloten = 'aangesloten';
 
-            const lockText = document.getElementById('js--lockText');
-            lockText.setAttribute('text', 'color: green;')
+//             const lockText = document.getElementById('js--lockText');
+//             lockText.setAttribute('text', 'color: green;')
 
-            const doorText = document.getElementById('js--doorText');
-            doorText.remove();
-        });
-    }
+//             const doorText = document.getElementById('js--doorText');
+//             doorText.remove();
+//         });
+//     }
 
 
 //     // js kleedkamer
