@@ -38,7 +38,7 @@ window.onload = () => {
                   }
             }
         };
-      }
+    }
   
     for (let i = 0; i < housedoor.length; i++) {
         housedoor[i].onmouseenter = (event) => {
