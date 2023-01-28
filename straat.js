@@ -33,10 +33,10 @@ window.onload = () => {
 
     // tp
     for (let i = 0; i < kleedkamerDeur.length; i++) {
-        kleedkamerDeur[i].onmouseenter = (event) => {
+        kleedkamerDeur[i].onmouseclick = (event) => {
             if (equipment == 4) {
                 check.setAttribute('color', 'green');
-                position.setAttribute("position", "10 1.63 -20");
+                rig.setAttribute("position", "10 1.63 -20");
                 kleedkamerDeur[i].setAttribute('sound', "volume: 0")
                 for (let i = 0; i < truck.length; i++) {
                   truck[i].setAttribute('sound', "volume: 1")
@@ -46,14 +46,19 @@ window.onload = () => {
     }
 
     // lopen
-    for (let i = 0; i < lopen.length; i++) {
-        lopen[i].addEventListener('click', function() {
-            let att = document.createAttribute('animation');
-            att.value = 'property: position; easing: linear; dur: 2000; to: ' +
-            this.getAttribute('position').x + ' 1.63 ' + (this.getAttribute('position').z - ' 10 ');
-            camera.setAttribute('animation', att.value);
-        })
+    for(let i=0; i < lopen.length; i++){
+        lopen[i].onclick = (event) =>{
+            let att = document.createAttribute("animation");
+            circleposition = lopen[i].getAttribute("position");
+            console.log(circleposition)
+            var positionto = String(circleposition.x) + " " + "0" + " " + String(circleposition.z);
+            console.log(positionto)
+            att.value = "property: position; easing: linear; dur: 2000; to:" + positionto
+            rig.setAttribute("animation", att.value);
+            
+        }
     }
+
   
     for (let i = 0; i < housedoor.length; i++) {
         housedoor[i].onmouseenter = (event) => {
