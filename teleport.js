@@ -16,7 +16,7 @@ window.onload = () => {
     }
 
     for (let i = 0; i < housedoor.length; i++) {
-      housedoor[i].onmouseenter = (event) => {
+      housedoor[i].onclick = (event) => {
       position.setAttribute("position", "0 1.63 0");
       
       for (let i = 0; i < truck.length; i++) {

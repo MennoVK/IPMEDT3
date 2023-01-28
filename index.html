@@ -6,26 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script defer src="script.js"></script>
-    <script defer src="./lopen.js"></script>
-    <script defer src="./straat.js"></script>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script defer src="straat.js"></script>
+    <script defer src="grabcontrols.js"></script>
     <title>My first VR world</title>
 </head>
 <body>
-    <a-scene fog="type: exponential; color: #AAA; density: 0.2;aaa" stats>
+    //fog="type: exponential; color: #AAA; density: 0.2;"
+    <a-scene  stats>
 
-        <a-entity id="rig">
+        <a-entity id="rig" position="21 0 0">
             <a-camera id="js--camera" position="0 1.63 0">
                 <a-image id="js--upperPov"></a-image>
                 <a-image id="js--lowerPov"></a-image>
-                <a-cursor id="js--cursor"
-                cursor="fuse: true; fuseTimeout: 2000"
-                geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01"
-                position="0 0 -0.5"
+                <a-cursor 
+                    animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 500; from: 0.5 0.5 0.5; to: 1 1 1"
+                    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.5 0.5 0.5"
+                    animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 1000; to: 1 1 1"
+                
+                    id="js--cursor"
+                    cursor = "fuse: true; fuseTimeout: 2000"
+                    material = "shader: flat"
+                    color="gold"
+                    raycaster = "objects: .js--housedoor"
                 ></a-cursor>
             </a-camera>
             <a-entity id="righthand" oculus-touch-controls="hand: right;" grip-logging triggerdown-logging triggerup-logging thumbstick-logging>
-                <a-entity id="js--jet--holding" visible="true" clickable position="0 -0.05 0.75" rotation="90 180 0" scale="0.5 0.5 0.5">
+                <a-entity id="js--jet--holding" visible="false" clickable position="0 -0.05 0.75" rotation="90 180 0" scale="0.5 0.5 0.5">
                     <a-entity position="0 1.63 0" rotation="0 180 0" gltf-model="#brandslang" raycaster="objects: .fire1model"></a-entity>
                     <a-cylinder id="js--water" sound="src: #whitenoise; volume: 5; loop: true" rotation="90 0 0" position="0 1.63 0" scale="1 0 1" radius="0.05" height="15" material="color: #3295a8; transparent: true; opacity: 0.25" ></a-cylinder>
                 </a-entity>
@@ -86,11 +92,11 @@
             <a-asset-item id="cable-material" src="./assets/models/materials/cable.mtl"></a-asset-item>
         </a-assets>
         <a-sky src="assets/models/skybox.png"></a-sky>
-       
+
+
+        
 
         <a-entity scale="0.6 0.6 0.6">
-            <a-obj-model gltf-model="#room" rotation="0 90 0" position="0 0 -4"></a-obj-model>
-            <!-- position should be -2 3 1 -->
             <a-obj-model id="eindetekst" gltf-model="#tekst" scale="0.7 0.7 0.7" rotation="0 0 0" position="-2 3 3"></a-obj-model>
 
             <a-entity position="-6.8 1.8 -4.2" id="js--fire1" class="fire" sound="src: #fireaudio; volume: 0; loop: true; autoplay: true;" scale="0.5 0.5 0.5">
@@ -147,8 +153,10 @@
     <!-- Brandende kamer eind -->
 
     <!-- Kleedkamer -->
-        <a-entity position="10 1.2 0" >
-        <a-obj-model class="js--brandslang js--pickup" src="#brandslang-obj" position="10.2 0.2 -0.5" rotation="0 270 0" scale="0.1 0.1 0.1" color="white"></a-obj-model>
+    <a-entity>
+        <a-entity id="js--jet" clickable position="10.25 0.2 -0.5" rotation="0 270 0" scale="0.8 0.8 0.8">
+            <a-entity id="js--brandslang" gltf-model="#brandslang"></a-entity>
+        </a-entity>
 
         <a-obj-model class="js--door" src="#door-obj" mtl="#door-material" position="12 -1 0.9" scale="1 1 1" rotation="0 90 0" sound="src: #firedepartment; volume: 1; loop: true; autoplay: true;" ></a-obj-model>
         <a-cylinder id="js--check" position="11.6 1.2 1" rotation="90 0 0" scale="0.1 0.1 0.1" color="red"></a-cylinder>
@@ -233,16 +241,13 @@
         <a-obj-model class="js--house" src="#houseCorner-obj" mtl="#house-material" rotation="0 -90 0" position="1 -1 -32" scale="1 1 1.1"></a-obj-model>
 
         <a-obj-model class="js--truck" src="#truck-obj" mtl="#truck-material" position="7.5 0.3 -18" scale="1 1 1"sound ="src: #engineidle; volume: 0; loop: true; autoplay: true;"></a-obj-model>
-
-      
-
-     </a-entity>
+     </a-entity> -->
      <!-- Straat eind -->
 
      <!-- Intro Kamer -->
-     <a-entity position="25 1.2 0" >
-        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" rotation="0 90 0" position="10 -1 1" scale="1 1 1" color="red"></a-obj-model>
-        <a-obj-model id="introtekst" gltf-model="#tekstBegin" scale="0.2 0.2 0.2" rotation="0 0 0" position="3.5 1 -2.9" color></a-obj-model>
+     <a-entity position="25 0 0" >
+        <a-obj-model class="js--kleedkamer" src="#kleedkamer-obj" mtl="#kleedkamer-material" rotation="0 90 0" position="10 -1 1" scale="1 1 1"></a-obj-model>
+        <a-obj-model id="introtekst" gltf-model="#tekstBegin" scale="0.2 0.2 0.2" rotation="0 0 0" position="3.5 1 -2.9"></a-obj-model>
     </a-entity>
     <!-- Intro Kamer eind -->
     </a-scene>
