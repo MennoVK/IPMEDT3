@@ -1,15 +1,72 @@
+let walljet = document.getElementById("js--jet")
+let jetholding = document.getElementById("js--jet--holding")
+
+let planeSuit = document.getElementById('js--plSuit');
+let planeBoots = document.getElementById('js--plBoots');
+let planeHelmet = document.getElementById('js--plHelmet');
+
+let equipment = 0
+
+
 AFRAME.registerComponent('grip-logging',{
     init: function () {
       this.el.addEventListener('gripdown', this.logGrip);
     },
     logGrip: function (evt) {
-        rightpos = (right.object3D.position).add(rig.object3D.position)
-        jetpos = jet.object3D.position
-        console.log(rightpos)
-        console.log(jetpos)
-        if ((rightpos.x > (jetpos.x-0.5) && rightpos.x < (jetpos.x+0.5)) && (rightpos.y > (jetpos.y-0.5) && rightpos.y < (jetpos.y+0.5)) && (rightpos.z > (jetpos.z-0.5) && rightpos.z < (jetpos.z+0.5))){
-          jet.setAttribute("visible",false);
+        let rightpos = right.object3D.getWorldPosition(new THREE.Vector3())
+        let firstdoorpos = firstdoor.object3D.getWorldPosition(new THREE.Vector3())
+
+        let bootspos = boots.object3D.getWorldPosition(new THREE.Vector3())
+        let suitpos = suit.object3D.getWorldPosition(new THREE.Vector3())
+        let helmetpos = helmet.object3D.getWorldPosition(new THREE.Vector3())
+
+        const jetpos = walljet.object3D.getWorldPosition(new THREE.Vector3())
+      
+
+        if ((rightpos.x > (firstdoorpos.x-1) && rightpos.x < (firstdoorpos.x+1)) && (rightpos.z > (firstdoorpos.z-0.5) && rightpos.z < (firstdoorpos.z+0.5))){
+          rig.setAttribute("position", "1.5 -15 0")
+          rig.setAttribute("rotation", "0 0 0")
+        }
+
+        else if ((rightpos.x > (jetpos.x-0.5) && rightpos.x < (jetpos.x+0.5)) && (rightpos.y > (jetpos.y-0.5) && rightpos.y < (jetpos.y+0.5)) && (rightpos.z > (jetpos.z-0.5) && rightpos.z < (jetpos.z+0.5))){
+          walljet.setAttribute("visible",false);
           jetholding.setAttribute("visible",true);
+          equipment += 1;
+        }
+
+        else if ((rightpos.x > (bootspos.x-0.5) && rightpos.x < (bootspos.x+0.5)) && (rightpos.y > (bootspos.y-0.5) && rightpos.y < (bootspos.y+0.5)) && (rightpos.z > (bootspos.z-0.5) && rightpos.z < (bootspos.z+0.5))){
+          planeBoots.setAttribute('color', 'green');  
+          boots.setAttribute("visible", "false")
+          equipment += 1;
+        }
+
+        else if ((rightpos.x > (suitpos.x-0.5) && rightpos.x < (suitpos.x+0.5)) && (rightpos.y > (suitpos.y-0.5) && rightpos.y < (suitpos.y+0.5)) && (rightpos.z > (suitpos.z-0.5) && rightpos.z < (suitpos.z+0.5))){
+          planeSuit.setAttribute('color', 'green');
+          suit.setAttribute("visible", "false")
+          equipment += 1;
+        }
+
+        else if ((rightpos.x > (helmetpos.x-0.5) && rightpos.x < (helmetpos.x+0.5)) && (rightpos.y > (helmetpos.y-0.5) && rightpos.y < (helmetpos.y+0.5)) && (rightpos.z > (helmetpos.z-0.5) && rightpos.z < (helmetpos.z+0.5))){
+          planeHelmet.setAttribute('color', 'green');
+          helmet.setAttribute("visible", "false")
+          helmOp()
+          equipment += 1;
         }
     }
   });
+
+
+helmOp = () =>{
+    const helmetUpperPov = document.getElementById('js--upperPov');
+    const helmetLowerPov = document.getElementById('js--lowerPov');
+    helmetUpperPov.setAttribute('src', './assets/models/materials/pov-upper-helmet.png');
+    helmetUpperPov.setAttribute('position', '0 0.5 -0.5');
+    helmetUpperPov.setAttribute('width', '5');
+    helmetUpperPov.setAttribute('height', '0.5');
+
+    helmetLowerPov.setAttribute('src', './assets/models/materials/pov-lower-helmet.png');
+    helmetLowerPov.setAttribute('position', '0 -0.5 -0.5');
+    helmetLowerPov.setAttribute('width', '5');
+    helmetLowerPov.setAttribute('height', '0.3');
+}
+    

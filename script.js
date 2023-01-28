@@ -3,7 +3,6 @@ const water = document.getElementById("js--water");
 const brandslang = document.getElementById("js--brandslang");
 const button = document.getElementById("js--button")
 const jet = document.getElementById("js--jet");
-const jetholding = document.getElementById("js--jet--holding");
 const fire = document.getElementsByClassName("fire")
 const left = document.getElementById("lefthand")
 const right = document.getElementById("righthand")
