@@ -65,7 +65,7 @@ AFRAME.registerComponent('raycaster-listen', {
     if (!intersection) { return; }
     if(spraying){
         parent = document.getElementById("js--" + this.el.getAttribute("id"))
-        if(parent.object3D.scale.x <= 0.4){
+        if(parent.object3D.scale.x <= 0.2){
             parent.setAttribute("visible", false)
             parent.components.sound.stopSound();
             if (fire1.getAttribute("visible") == false 
