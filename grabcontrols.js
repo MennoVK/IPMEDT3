@@ -7,7 +7,7 @@ let planeHelmet = document.getElementById('js--plHelmet');
 let planeBrandspuit = document.getElementById('js--plBrandspuit')
 
 let truck = document.getElementById('js--truck')
-const fire = document.getElementsByClassName('fire');
+// const fire = document.getElementsByClassName('fire');
 
 let lock = document.getElementsByClassName('js--lock');
 let cable = document.getElementById('js--cable');
@@ -56,8 +56,8 @@ AFRAME.registerComponent('grip-logging',{
               fire[i].setAttribute('sound', "volume: 1")
             }
             scene.setAttribute("fog", "type: linear; color: #AAA; density: 0.2; near: 0; far: 6;")
-            scene.flushToDOM();
-            console.log(scene.getAttribute("fog"))
+            // scene.flushToDOM();
+            // console.log(scene.getAttribute("fog"))
 
           }
         }
