@@ -69,7 +69,7 @@
 
         <a-sky src="assets/models/skybox.png"></a-sky>
 
-        <a-entity id="rig" position="1 -20 -2" rotation="0 270 0">
+        <a-entity id="rig" position="1 0 -2" rotation="0 270 0">
             <a-camera id="js--camera">
                 <a-image id="js--upperPov"></a-image>
                 <a-image id="js--lowerPov"></a-image>
@@ -234,13 +234,10 @@
             <a-entity id="js--doorText" text="value: maak eerst de brandslang vast \n aan de brandweer wagen; color: white; width: 3px;" rotation="0 90 0" position="1.12 1.4 -19.20"></a-entity>
 
             <a-entity>
-                <a-cylinder class="js--paarsecirckel" position="8 -0.6 -10" color="purple"></a-cylinder>
-                <a-cylinder class="js--paarsecirckel" position="4 -0.6 -17" color="purple"></a-cylinder>
-                <a-cylinder class="js--paarsecirckel" position="4 -0.6 -22" color="purple"></a-cylinder>
-                <a-cylinder class="js--paarsecirckel" position="8 -0.6 -25" color="purple"></a-cylinder>
-                <a-cylinder class="js--paarsecirckel" position="10 -0.6 -29" color="purple"></a-cylinder>
-                <a-cylinder class="js--paarsecirckel" position="16 -0.6 -29" color="purple"></a-cylinder>
-                <a-cylinder class="js--paarsecirckel" position="11 -0.6 -19" color="purple"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="8 -0.2 -11" color="purple" scale="0.3 0.3 0.3"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="3 -0.2 -15" color="purple" scale="0.3 0.3 0.3"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="5.5 -0.2 -18.5" color="purple" scale="0.3 0.3 0.3"></a-cylinder>
+                <a-cylinder class="js--paarsecirckel" position="1.5 -0.1 -18.5" color="purple" scale="0.3 0.3 0.3"></a-cylinder>
             </a-entity>
             
             <a-obj-model class="js--house" src="#house-obj" mtl="#house-material" position="1 0 -8" ></a-obj-model>
