@@ -1,8 +1,6 @@
 const right = document.getElementById("righthand")
 const water = document.getElementById("js--water");
 const fire = document.getElementsByClassName("fire")
-const camera = document.getElementById("js--camera")
-const rig = document.getElementById("rig")
 
 var spraying = false;
 
@@ -61,7 +59,7 @@ AFRAME.registerComponent('raycaster-listen', {
         if(parent.object3D.scale.x <= 0.4){
             parent.setAttribute("visible", false)
             parent.components.sound.stopSound();
-            scene.setAttribute("fog", "")
+            scene.setAttribute("fog", "far: 16")
             scene.flushToDOM();
             console.log(scene.getAttribute("fog"))
         }
@@ -104,17 +102,3 @@ AFRAME.registerComponent('triggerup-logging',{
         water.components.sound.stopSound();
     }
 });
-
-AFRAME.registerComponent('thumbstick-logging',{
-    init: function () {
-      this.el.addEventListener('thumbstickmoved', this.logThumbstick);
-    },
-    logThumbstick: function (evt) {
-      var direction = new THREE.Vector3();
-      camera.object3D.getWorldDirection(direction);
-
-      if (evt.detail.y > 0.85) { rig.object3D.position.z += 0.02 * direction.z; rig.object3D.position.x += 0.02 * direction.x; }
-      if (evt.detail.y < -0.85) { rig.object3D.position.z -= 0.02 * direction.z; rig.object3D.position.x -= 0.02 * direction.x; }
-    }
-  });
-
