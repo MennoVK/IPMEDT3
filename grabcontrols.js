@@ -6,6 +6,9 @@ let planeBoots = document.getElementById('js--plBoots');
 let planeHelmet = document.getElementById('js--plHelmet');
 let planeBrandspuit = document.getElementById('js--plBrandspuit')
 
+let truck = document.getElementById('js--truck')
+const fire = document.getElementsByClassName('fire');
+
 let lock = document.getElementsByClassName('js--lock');
 let cable = document.getElementById('js--cable');
 
@@ -39,6 +42,7 @@ AFRAME.registerComponent('grip-logging',{
           if ((rightpos.x > (seconddoorpos.x-1) && rightpos.x < (seconddoorpos.x+1)) &&  (rightpos.y > (seconddoorpos.y-1) && rightpos.y < (seconddoorpos.y+1)) && (rightpos.z > (seconddoorpos.z-0.5) && rightpos.z < (seconddoorpos.z+0.5))){
             rig.setAttribute("position", "5 0 -15")
             rig.setAttribute("rotation", "0 0 0")
+            truck.setAttribute('sound', 'volume: 1')
           }
         }
 
@@ -47,6 +51,11 @@ AFRAME.registerComponent('grip-logging',{
           if ((rightpos.x > (thirddoorpos.x-1) && rightpos.x < (thirddoorpos.x+1)) &&  (rightpos.y > (thirddoorpos.y-1) && rightpos.y < (thirddoorpos.y+1)) && (rightpos.z > (thirddoorpos.z-0.5) && rightpos.z < (thirddoorpos.z+0.5))){
             rig.setAttribute("position", "-3 -10 -4")
             rig.setAttribute("rotation", "0 225 0")
+            truck.setAttribute('sound', 'volume: 0')
+            
+            for (let i = 0; i < fire.length; i++) {
+              fire[i].setAttribute('sound', "volume: 1")
+            }
           }
         }
 
