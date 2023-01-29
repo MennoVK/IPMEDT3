@@ -49,7 +49,6 @@ AFRAME.registerComponent('grip-logging',{
           }
         }
 
-        console.log(aangesloten)
         if (aangesloten == 'aangesloten'){
           if ((rightpos.x > (thirddoorpos.x-1) && rightpos.x < (thirddoorpos.x+1)) &&  (rightpos.y > (thirddoorpos.y-1) && rightpos.y < (thirddoorpos.y+1)) && (rightpos.z > (thirddoorpos.z-0.5) && rightpos.z < (thirddoorpos.z+0.5))){
             rig.setAttribute("position", "-3 -10 -4")
@@ -60,6 +59,10 @@ AFRAME.registerComponent('grip-logging',{
             for (let i = 0; i < fire.length; i++) {
               fire[i].setAttribute('sound', "volume: 1")
             }
+            scene.setAttribute("fog", "type: linear; color: #AAA; density: 0.2; near: 0; far: 6;")
+            // scene.flushToDOM();
+            // console.log(scene.getAttribute("fog"))
+
           }
         }
 
