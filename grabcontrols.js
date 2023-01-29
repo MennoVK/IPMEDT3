@@ -1,10 +1,14 @@
-let walljet = document.getElementById("js--jet")
-let jetholding = document.getElementById("js--jet--holding")
+let walljet = document.getElementById("js--jet");
+let jetholding = document.getElementById("js--jet--holding");
 
 let planeSuit = document.getElementById('js--plSuit');
 let planeBoots = document.getElementById('js--plBoots');
 let planeHelmet = document.getElementById('js--plHelmet');
-let planeBrandspuit = document.getElementById('js--plBrandspuit')
+let planeBrandspuit = document.getElementById('js--plBrandspuit');
+
+let truck = document.getElementById('js--truck');
+let fireDepartment = document.getElementById('seconddoor');
+
 
 let lock = document.getElementsByClassName('js--lock');
 let cable = document.getElementById('js--cable');
@@ -32,13 +36,16 @@ AFRAME.registerComponent('grip-logging',{
 
         if ((rightpos.x > (firstdoorpos.x-1) && rightpos.x < (firstdoorpos.x+1)) && (rightpos.y > (firstdoorpos.y-1) && rightpos.y < (firstdoorpos.y+1)) && (rightpos.z > (firstdoorpos.z-0.5) && rightpos.z < (firstdoorpos.z+0.5))){
           rig.setAttribute("position", "1.5 -15 0")
-          rig.setAttribute("rotation", "0 0 0")          
+          rig.setAttribute("rotation", "0 0 0")
+          fireDepartment.setAttribute('sound', 'volume: 1')
         }
 
         if (equipment == 4){
           if ((rightpos.x > (seconddoorpos.x-1) && rightpos.x < (seconddoorpos.x+1)) &&  (rightpos.y > (seconddoorpos.y-1) && rightpos.y < (seconddoorpos.y+1)) && (rightpos.z > (seconddoorpos.z-0.5) && rightpos.z < (seconddoorpos.z+0.5))){
             rig.setAttribute("position", "5 0 -15")
             rig.setAttribute("rotation", "0 0 0")
+            fireDepartment.setAttribute('sound', 'volume: 0')
+            truck.setAttribute('sound', 'volume: 1')
           }
         }
 
