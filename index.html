@@ -112,7 +112,7 @@
     <!-- Intro Kamer eind -->
 
     <!-- Kleedkamer -->
-        <a-entity position="0 -15 0" id="kleedkamer">
+        <a-entity position="0 -15 0" id="kleedkamer" visible="false">
             <a-entity id="js--jet" position="0.25 1.5 -0.5" rotation="0 270 0" scale="0.8 0.8 0.8">
                 <a-entity id="js--brandslang" gltf-model="#brandslang"></a-entity>
             </a-entity>
@@ -166,7 +166,7 @@
     <!-- Kleedkamer eind -->
 
     <!-- Brandende kamer begin -->
-        <a-entity id="brandendekamer" scale="1 1 1" position="0 -10 0">
+        <a-entity id="brandendekamer" scale="1 1 1" position="0 -10 0" visible="false">
           
             <a-text id="js--eindetekst" scale="0.6 0.6 0.6" rotation="0 180 0" position="2.3 1.6 2" value="
             Gefeliciteerd! 
@@ -241,7 +241,7 @@
     <!-- Brandende kamer eind -->
 
     <!-- Straat -->
-        <a-entity position="0 0 0" material="fog: false" id="straat"> 
+        <a-entity position="0 0 0" material="fog: false" id="straat" visible="false"> 
             <a-entity>
                 <a-image src="./assets/models/materials/smoke-texture.png" rotation="0 270 0" position="1.06 2 -15.8" width="2" height="2"
                 animation="property: position; to: 1.08 2 -15; dur: 13000; easing: easeInOutBack; loop: true;"></a-image>

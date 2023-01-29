@@ -81,9 +81,9 @@ AFRAME.registerComponent('raycaster-listen', {
             }       
         }
         else{
-            parent.object3D.scale.x -= 0.001
-            parent.object3D.scale.y -= 0.001
-            parent.object3D.scale.z -= 0.001
+            parent.object3D.scale.x -= 0.0007
+            parent.object3D.scale.y -= 0.0007
+            parent.object3D.scale.z -= 0.0007
             
         }
     }
