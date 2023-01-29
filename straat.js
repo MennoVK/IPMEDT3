@@ -41,21 +41,21 @@
 //     }
 
   
-    for (let i = 0; i < housedoor.length; i++) {
-        housedoor[i].onmouseenter = (event) => {
-            if (aangesloten == 'aangesloten') {
-                position.setAttribute("position", "0 1.63 0");
+// for (let i = 0; i < housedoor.length; i++) {
+//     housedoor[i].onmouseenter = (event) => {
+//         if (aangesloten == 'aangesloten') {
+//             position.setAttribute("position", "0 1.63 0");
         
-                for (let i = 0; i < truck.length; i++) {
-                    truck[i].setAttribute('sound', "volume: 0")
-                }
+//             for (let i = 0; i < truck.length; i++) {
+//                 truck[i].setAttribute('sound', "volume: 0")
+//             }
           
-                for (let i = 0; i < fire.length; i++) {
-                    fire[i].setAttribute('sound', "volume: 1")
-                }
-            }
-        };
-    }
+//             for (let i = 0; i < fire.length; i++) {
+//                 fire[i].setAttribute('sound', "volume: 1")
+//             }
+//         }
+//     };
+// }
 
 
 //     // js straat
