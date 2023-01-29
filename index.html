@@ -12,7 +12,7 @@
     <title>My first VR world</title>
 </head>
 <body>
-    <a-scene stats fog="type: linear; color: #AAA; density: 0.2; near: 0; far: 6;">
+    <a-scene id="scene" stats fog="type: linear; color: #AAA; density: 0.2; near: 0; far: 6;breekcode">
         <a-assets>
             <!-- Menno -->
             <a-asset-item id="brandslang" src="assets/models/brandslang.glb"></a-asset-item>
@@ -69,7 +69,7 @@
 
         <a-sky src="assets/models/skybox.png"></a-sky>
 
-        <a-entity id="rig" position="1 -10 -2" rotation="0 270 0">
+        <a-entity id="rig" position="1 -20 -2" rotation="0 270 0">
             <a-camera id="js--camera">
                 <a-image id="js--upperPov"></a-image>
                 <a-image id="js--lowerPov"></a-image>
@@ -83,7 +83,7 @@
                     material = "shader: flat"
                     color="gold"
                     raycaster = "objects: .js--housedoor, .js--paarsecirckel, .js--lock"
-                ></a-cursor>
+                ></a-cursor> 
             </a-camera>
             <a-entity id="righthand" oculus-touch-controls="hand: right;" grip-logging triggerdown-logging triggerup-logging thumbstick-logging>
                 <a-entity id="js--jet--holding" visible="false" clickable position="0 -0.05 0.75" rotation="90 180 0" scale="0.5 0.5 0.5">
@@ -226,7 +226,7 @@
                 animation="property: position; to: 1.08 4.5 -18.5; delay: 7000; dur: 17000; easing: easeInOutBack; loop: true;"></a-image>
             </a-entity>
 
-            <a-entity id="js--lockText" text="value:Koppel de spuit door \n naar het vlak te kijken; color: white; width: 2px;" rotation="0 270 0" position="6.5 1.42 -17.4"></a-entity>
+            <a-entity id="js--lockText" text="value:Koppel de spuit door \n naar dit vlak te kijken; color: white; width: 2px;" rotation="0 270 0" position="6.5 1.42 -17.4"></a-entity>
             <a-plane id="js--lock" class="js--lock" position="6.54 1 -17.95" color="#163540" rotation="0 -90 0" width="1" height="1"></a-plane>
             <a-obj-model id="js--cable" rotation="0 180 0" position="6.3 1 -17.87" scale="0.2 0.2 0.2"></a-obj-model>
             <a-entity id="js--doorText" text="value: maak eerst de brandslang vast \n aan de brandweer wagen; color: white; width: 3px;" rotation="0 90 0" position="1.12 1.4 -19.20"></a-entity>

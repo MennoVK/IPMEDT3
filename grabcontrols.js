@@ -32,7 +32,7 @@ AFRAME.registerComponent('grip-logging',{
 
         if ((rightpos.x > (firstdoorpos.x-1) && rightpos.x < (firstdoorpos.x+1)) && (rightpos.y > (firstdoorpos.y-1) && rightpos.y < (firstdoorpos.y+1)) && (rightpos.z > (firstdoorpos.z-0.5) && rightpos.z < (firstdoorpos.z+0.5))){
           rig.setAttribute("position", "1.5 -15 0")
-          rig.setAttribute("rotation", "0 0 0")
+          rig.setAttribute("rotation", "0 0 0")          
         }
 
         if (equipment == 4){
@@ -42,11 +42,14 @@ AFRAME.registerComponent('grip-logging',{
           }
         }
 
-        console.log(aangesloten)
         if (aangesloten == 'aangesloten'){
           if ((rightpos.x > (thirddoorpos.x-1) && rightpos.x < (thirddoorpos.x+1)) &&  (rightpos.y > (thirddoorpos.y-1) && rightpos.y < (thirddoorpos.y+1)) && (rightpos.z > (thirddoorpos.z-0.5) && rightpos.z < (thirddoorpos.z+0.5))){
             rig.setAttribute("position", "-3 -10 -4")
             rig.setAttribute("rotation", "0 225 0")
+            scene.setAttribute("fog", "type: linear; color: #AAA; density: 0.2; near: 0; far: 6;")
+            scene.flushToDOM();
+            console.log(scene.getAttribute("fog"))
+
           }
         }
 
