@@ -9,6 +9,8 @@ const fire5 = document.getElementById("js--fire5");
 const fire6 = document.getElementById("js--fire6");
 const fire7 = document.getElementById("js--fire7");
 
+const text = document.getElementById("js--eindetekst");
+
 var spraying = false;
 
 //water animation
@@ -75,13 +77,14 @@ AFRAME.registerComponent('raycaster-listen', {
             && fire7.getAttribute("visible") == false){
                 scene.setAttribute("fog", "far: 26")
                 scene.flushToDOM();
-                eindetekst.setAttribute("position", "-2 3 1.5")
+                text.setAttribute("position", "2.3 1.6 -0.5");
             }       
         }
         else{
             parent.object3D.scale.x -= 0.001
             parent.object3D.scale.y -= 0.001
             parent.object3D.scale.z -= 0.001
+            
         }
     }
   }

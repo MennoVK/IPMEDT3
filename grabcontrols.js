@@ -52,7 +52,7 @@ AFRAME.registerComponent('grip-logging',{
 
         if (aangesloten == 'aangesloten'){
           if ((rightpos.x > (thirddoorpos.x-1) && rightpos.x < (thirddoorpos.x+1)) &&  (rightpos.y > (thirddoorpos.y-1) && rightpos.y < (thirddoorpos.y+1)) && (rightpos.z > (thirddoorpos.z-0.5) && rightpos.z < (thirddoorpos.z+0.5))){
-            rig.setAttribute("position", "-3 -10 -4")
+            rig.setAttribute("position", "-1.5 -10 -5")
             rig.setAttribute("rotation", "0 225 0")
             scene.setAttribute("fog", "type: linear; color: #AAA; density: 0.2; near: 0; far: 6;")
             scene.flushToDOM();
