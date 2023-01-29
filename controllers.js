@@ -77,7 +77,7 @@ AFRAME.registerComponent('raycaster-listen', {
             && fire7.getAttribute("visible") == false){
                 scene.setAttribute("fog", "far: 26")
                 scene.flushToDOM();
-                text.setAttribute("position", "2.5 2.5 1");
+                text.setAttribute("position", "2.3 1.6 -0.5");
             }       
         }
         else{
