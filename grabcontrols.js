@@ -39,6 +39,7 @@ AFRAME.registerComponent('grip-logging',{
           rig.setAttribute("position", "1.5 -15 0")
           rig.setAttribute("rotation", "0 0 0")
           fireDepartment.setAttribute('sound', 'volume: 1')
+          introkamer.setAttribute("visible", "false")
         }
 
         if (equipment == 4){
@@ -47,6 +48,7 @@ AFRAME.registerComponent('grip-logging',{
             rig.setAttribute("rotation", "0 0 0")
             fireDepartment.setAttribute('sound', 'volume: 0')
             truck.setAttribute('sound', 'volume: 2')
+            kleedkamer.setAttribute("visible", "false")
           }
         }
 
@@ -56,6 +58,7 @@ AFRAME.registerComponent('grip-logging',{
             rig.setAttribute("rotation", "0 225 0")
             scene.setAttribute("fog", "type: linear; color: #AAA; density: 0.2; near: 0; far: 6;")
             scene.flushToDOM();
+            straat.setAttribute("visible", "false")
 
             for (let i=0; i < fireSound.length; i++) {
               fireSound[i].setAttribute('sound', 'volume: 1');
