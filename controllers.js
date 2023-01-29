@@ -61,6 +61,9 @@ AFRAME.registerComponent('raycaster-listen', {
         if(parent.object3D.scale.x <= 0.4){
             parent.setAttribute("visible", false)
             parent.components.sound.stopSound();
+            scene.setAttribute("fog", "")
+            scene.flushToDOM();
+            console.log(scene.getAttribute("fog"))
         }
         else{
             parent.object3D.scale.x -= 0.001
