@@ -1,9 +1,15 @@
 const right = document.getElementById("righthand")
 const water = document.getElementById("js--water");
 const fire = document.getElementsByClassName("fire")
+const fire1 = document.getElementById("js--fire1");
+const fire2 = document.getElementById("js--fire2");
+const fire3 = document.getElementById("js--fire3");
+const fire4 = document.getElementById("js--fire4");
+const fire5 = document.getElementById("js--fire5");
+const fire6 = document.getElementById("js--fire6");
+const fire7 = document.getElementById("js--fire7");
 
 var spraying = false;
-
 
 //water animation
 function myTimer() {
@@ -38,6 +44,7 @@ setInterval(rotate, animationspeed);
 
 
 
+
 //bluslogica
 AFRAME.registerComponent('raycaster-listen', {
 	init: function () {
@@ -59,9 +66,16 @@ AFRAME.registerComponent('raycaster-listen', {
         if(parent.object3D.scale.x <= 0.4){
             parent.setAttribute("visible", false)
             parent.components.sound.stopSound();
-            scene.setAttribute("fog", "far: 16")
-            scene.flushToDOM();
-            console.log(scene.getAttribute("fog"))
+            if (fire1.getAttribute("visible") == false 
+            && fire2.getAttribute("visible") == false
+            && fire3.getAttribute("visible") == false
+            && fire4.getAttribute("visible") == false
+            && fire5.getAttribute("visible") == false
+            && fire6.getAttribute("visible") == false
+            && fire7.getAttribute("visible") == false){
+                scene.setAttribute("fog", "far: 26")
+                scene.flushToDOM();
+            }       
         }
         else{
             parent.object3D.scale.x -= 0.001
