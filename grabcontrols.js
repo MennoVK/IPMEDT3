@@ -46,7 +46,7 @@ AFRAME.registerComponent('grip-logging',{
             rig.setAttribute("position", "5 0 -15")
             rig.setAttribute("rotation", "0 0 0")
             fireDepartment.setAttribute('sound', 'volume: 0')
-            truck.setAttribute('sound', 'volume: 1')
+            truck.setAttribute('sound', 'volume: 2')
           }
         }
 
