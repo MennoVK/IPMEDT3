@@ -6,6 +6,7 @@ let planeBoots = document.getElementById('js--plBoots');
 let planeHelmet = document.getElementById('js--plHelmet');
 let planeBrandspuit = document.getElementById('js--plBrandspuit');
 
+const fireSound = document.getElementsByClassName('fire');
 let truck = document.getElementById('js--truck');
 let fireDepartment = document.getElementById('seconddoor');
 
@@ -55,6 +56,10 @@ AFRAME.registerComponent('grip-logging',{
             rig.setAttribute("rotation", "0 225 0")
             scene.setAttribute("fog", "type: linear; color: #AAA; density: 0.2; near: 0; far: 6;")
             scene.flushToDOM();
+
+            for (let i=0; i < fireSound.length; i++) {
+              fireSound[i].setAttribute('sound', 'volume: 1');
+            }
           }
         }
 
